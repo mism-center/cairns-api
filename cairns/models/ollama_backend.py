@@ -15,12 +15,13 @@ class OllamaChatBackend(ChatModel):
         base_url: str,
         model_name: str,
         timeout_seconds: float = 120.0,
-        temperature: float = 0.0,
+        temperature: float | None = None,
     ):
         self.base_url = base_url.rstrip("/")
         self.model_name = model_name
         self.timeout_seconds = timeout_seconds
-        self.temperature = temperature
+        # Ollama has no "unset"; keep the old deterministic default.
+        self.temperature = 0.0 if temperature is None else temperature
 
     def generate(self, messages: Sequence[ChatMessage]) -> str:
         payload = {

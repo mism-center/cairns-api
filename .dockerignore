@@ -3,3 +3,6 @@ __pycache__/
 .env
 data/
 .git/
+helm/
+examples/
+README.md

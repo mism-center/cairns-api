@@ -6,7 +6,7 @@ langchain-openai==0.3.7
 langchain-ollama==0.3.3
 langgraph==0.4.3
 langgraph-checkpoint==2.0.25
-qdrant-client==1.14.2
+qdrant-client==1.19.0
 openai
 ollama
 tiktoken
@@ -20,3 +20,7 @@ fastapi==0.115.12
 uvicorn[standard]
 # ── Optional tracing (disabled by default) ──
 langfuse==2.60.3
+# Optional: input guardrails (INPUT_GUARD_ENABLED=true) — heavy, imported lazily.
+# nemoguardrails
+# Optional: FalkorDB/Redis KG backend (KG_BACKEND=redis) — imported lazily.
+# falkordb

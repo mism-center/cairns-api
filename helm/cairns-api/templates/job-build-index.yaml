@@ -1,0 +1,80 @@
+{{/*
+One-off index build: ToolDB + BioModels -> Qdrant (QV) + sqlite KG on the PVC.
+Named per release revision, so a `helm upgrade` with indexBuild.enabled=true
+triggers exactly one new build instead of colliding with the previous Job.
+*/}}
+{{- if .Values.indexBuild.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "cairns-api.fullname" . }}-build-index-{{ .Release.Revision }}
+  labels: {{- include "cairns-api.labels" . | nindent 4 }}
+spec:
+  backoffLimit: 1
+  ttlSecondsAfterFinished: {{ .Values.indexBuild.ttlSecondsAfterFinished }}
+  template:
+    metadata:
+      labels: {{- include "cairns-api.selectorLabels" . | nindent 8 }}
+    spec:
+      restartPolicy: Never
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: build-index
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
+          command: ["bash"] #, "scripts/build_indexes.sh"]
+          tty: true
+          stdin: true
+          envFrom:
+            - configMapRef:
+                name: {{ include "cairns-api.fullname" . }}-env
+          env:
+            - name: PYTHON
+              value: python
+            - name: TOOLDB_JSON_PATH
+              value: {{ .Values.indexBuild.tooldbJsonPath | quote }}
+            - name: TOOLDB_LIMIT
+              value: {{ .Values.indexBuild.toolDbLimit | quote }}
+            - name: BIOMODELS_LIMIT
+              value: {{ .Values.indexBuild.biomodelsLimit | quote }}
+            - name: BIOMODELS_QUERY
+              value: {{ .Values.indexBuild.biomodelsQuery | quote }}
+            - name: FETCH_BIOMODELS
+              value: {{ .Values.indexBuild.fetchBiomodels | quote }}
+            # Keep every artifact on the PVC, not in the ephemeral image layer.
+            - name: DATA_DIR
+              value: {{ trimSuffix "/" .Values.persistence.mountPath | quote }}
+            - name: TOOLDB_PREPARED_DOCS_PATH
+              value: {{ printf "%s/tools_docs.jsonl" (trimSuffix "/" .Values.persistence.mountPath) | quote }}
+            - name: TOOLDB_EMBEDDED_DOCS_PATH
+              value: {{ printf "%s/tools_docs_with_embeddings.jsonl" (trimSuffix "/" .Values.persistence.mountPath) | quote }}
+            {{- if .Values.llm.openai.existingSecret }}
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.llm.openai.existingSecret }}
+                  key: {{ .Values.llm.openai.existingSecretKey }}
+            {{- else if .Values.llm.openai.apiKey }}
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "cairns-api.fullname" . }}-llm
+                  key: OPENAI_API_KEY
+            {{- end }}
+          resources: {{- toYaml .Values.indexBuild.resources | nindent 12 }}
+          volumeMounts:
+            - name: data
+              mountPath: {{ .Values.persistence.mountPath }}
+      volumes:
+        - name: data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "cairns-api.pvcName" . }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+{{- end }}

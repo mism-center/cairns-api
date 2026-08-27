@@ -1,0 +1,4 @@
+# Shell scripts run inside Linux containers — CRLF breaks bash (`set: pipefail:
+# invalid option name`) and the shebang. Force LF regardless of platform.
+*.sh text eol=lf
+Dockerfile text eol=lf

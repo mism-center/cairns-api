@@ -1,0 +1,17 @@
+CAIRNS Recommendation API deployed.
+
+{{- $path := include "cairns-api.rootPath" . }}
+{{- if .Values.ingress.enabled }}
+URL:   http{{ if .Values.ingress.tls.enabled }}s{{ end }}://{{ .Values.ingress.host }}{{ $path }}/
+Docs:  http{{ if .Values.ingress.tls.enabled }}s{{ end }}://{{ .Values.ingress.host }}{{ $path }}/docs
+{{- else }}
+No ingress. Port-forward:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "cairns-api.fullname" . }} 8000:{{ .Values.service.port }}
+{{- end }}
+
+Readiness needs BOTH: Qdrant collection '{{ .Values.vectorStore.collection }}' at {{ include "cairns-api.qdrantUrl" . }} and the KG sqlite.
+Until the index exists, /health returns 503 and pods stay NotReady. Build it once:
+
+  1) copy the ToolDB catalog to {{ .Values.indexBuild.tooldbJsonPath }} on the PVC
+  2) helm upgrade {{ .Release.Name }} <chart> -n {{ .Release.Namespace }} --set indexBuild.enabled=true
+  3) kubectl -n {{ .Release.Namespace }} logs -f job/{{ include "cairns-api.fullname" . }}-build-index-{{ .Release.Revision }}

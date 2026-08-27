@@ -34,7 +34,10 @@ OPENAI_EMBED_MODEL = os.getenv("OPENAI_EMBED_MODEL", os.getenv("EMB_MODEL_NAME",
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", os.getenv("GEN_API_KEY", "EMPTY"))
 
 GEN_MODEL_NAME = os.getenv("GEN_MODEL_NAME", OPENAI_CHAT_MODEL if MODEL_BACKEND == "openai" else OLLAMA_CHAT_MODEL)
-GEN_TEMPERATURE = float(os.getenv("GEN_TEMPERATURE", "0"))
+# Unset => omit the param entirely. Reasoning models (gpt-5.x) reject any
+# explicit temperature other than their default 1.
+_gen_temperature_raw = os.getenv("GEN_TEMPERATURE", "").strip()
+GEN_TEMPERATURE = float(_gen_temperature_raw) if _gen_temperature_raw else None
 GEN_API_KEY = os.getenv("GEN_API_KEY", OPENAI_API_KEY)
 GUARDIAN_MODEL_NAME = os.getenv("GUARDIAN_MODEL_NAME", "llama3.1:latest")
 GUARDIAN_MODEL_HOST = os.getenv("GUARDIAN_MODEL_URL", OLLAMA_BASE_URL)

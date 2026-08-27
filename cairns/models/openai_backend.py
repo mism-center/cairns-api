@@ -14,17 +14,21 @@ class OpenAIChatBackend(ChatModel):
         api_key: str,
         base_url: str | None = None,
         timeout_seconds: float = 120.0,
-        temperature: float = 0.0,
+        temperature: float | None = None,
     ):
         self.client = OpenAI(api_key=api_key, base_url=base_url, timeout=timeout_seconds)
         self.model_name = model_name
+        # None => don't send the param. Reasoning models only accept their default.
         self.temperature = temperature
 
     def generate(self, messages: Sequence[ChatMessage]) -> str:
+        kwargs = {}
+        if self.temperature is not None:
+            kwargs["temperature"] = self.temperature
         completion = self.client.chat.completions.create(
             model=self.model_name,
             messages=[{"role": m.role, "content": m.content} for m in messages],
-            temperature=self.temperature,
+            **kwargs,
         )
         if not completion.choices:
             return ""
