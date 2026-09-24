@@ -1,0 +1,22 @@
+# ── Agent core ──
+langchain==0.3.19
+langchain-community==0.3.18
+langchain-core==0.3.83
+langchain-openai==0.3.7
+langchain-ollama==0.3.3
+langgraph==0.4.3
+langgraph-checkpoint==2.0.25
+qdrant-client==1.14.2
+openai
+ollama
+tiktoken
+beautifulsoup4
+pydantic
+httpx==0.27.2
+requests
+aiohttp
+# ── API server ──
+fastapi==0.115.12
+uvicorn[standard]
+# ── Optional tracing (disabled by default) ──
+langfuse==2.60.3

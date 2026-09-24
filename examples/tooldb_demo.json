@@ -1,0 +1,5768 @@
+[
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_chopchop",
+  "identifier": "chopchop",
+  "name": "CHOPCHOP",
+  "description": "CHOPCHOP is a versatile tool for selecting target sites for CRISPR (Cas9, Cas9 nickase, Cas13, Cpf1/CasX) or TALEN-directed mutagenesis. The latest release of CHOPCHOP (version 3) includes many new features and visualization options, supporting over 200 genomes with whole-gene targeting and versatile search modes. The tool now enables precise RNA targeting with Cas13, supporting alternative transcript isoforms and predicting RNA accessibility using ViennaRNA's RNAfold. The update also introduces new DNA targeting modes, including CRISPR activation/repression, targeted enrichment of loci for long-read sequencing, and prediction of Cas9 repair outcomes. For larger queries or handling unsupported genomes, a command-line version is available with additional functionalities. CHOPCHOP v3 is user-friendly and well-equipped to support diverse targeting applications, facilitating effective experimental design.",
+  "applicationCategory": [
+   "Web application",
+   "Command-line tool"
+  ],
+  "programmingLanguage": [
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0622",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genomics",
+    "url": "http://edamontology.org/topic_0622"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3912",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genetic engineering",
+    "url": "http://edamontology.org/topic_3912"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3511",
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid sites, features and motifs",
+    "url": "http://edamontology.org/topic_3511"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3678",
+    "inDefinedTermSet": "EDAM",
+    "name": "Experimental design and studies",
+    "url": "http://edamontology.org/topic_3678"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0092",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data visualisation",
+    "url": "http://edamontology.org/topic_0092"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Prediction and recognition",
+    "url": "http://edamontology.org/operation_2423"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Primer and probe design",
+    "url": "http://edamontology.org/operation_2419"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Deposition",
+    "url": "http://edamontology.org/operation_3431"
+   }
+  ],
+  "keywords": [
+   "ELIXIR-NO",
+   "ELIXIR-Norway",
+   "UiB tools"
+  ],
+  "url": "https://bio.tools/chopchop",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Gene annotation format",
+      "url": "http://edamontology.org/format_2031"
+     },
+     {
+      "name": "Sequence range format",
+      "url": "http://edamontology.org/format_2078"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA sequence (raw)",
+    "url": "http://edamontology.org/data_3497"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene ID",
+    "url": "http://edamontology.org/data_2295"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Tool name",
+    "url": "http://edamontology.org/data_1190"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence assembly",
+    "url": "http://edamontology.org/data_0925"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "GFF3",
+      "url": "http://edamontology.org/format_1975"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Feature table",
+    "url": "http://edamontology.org/data_1270"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Species name",
+    "url": "http://edamontology.org/data_1045"
+   }
+  ],
+  "output": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence set (nucleic acid)",
+    "url": "http://edamontology.org/data_1234"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_cygenexpi",
+  "identifier": "CyGenexpi",
+  "name": "CyGenexpi",
+  "description": "CyGenexpi is a Cytoscape plugin for validating/inferring genetic networks from time series expression data. It is based on a ordinary differential equation (ODE) model of gene regulation.",
+  "applicationCategory": [
+   "Plug-in"
+  ],
+  "programmingLanguage": [
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0204",
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene regulation",
+    "url": "http://edamontology.org/topic_0204"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene regulatory network analysis",
+    "url": "http://edamontology.org/operation_1781"
+   }
+  ],
+  "url": "https://bio.tools/CyGenexpi",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "DSV",
+      "url": "http://edamontology.org/format_3751"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene expression matrix",
+    "url": "http://edamontology.org/data_3112"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "DSV",
+      "url": "http://edamontology.org/format_3751"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network report",
+    "url": "http://edamontology.org/data_2984"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_repeat_explorer",
+  "identifier": "repeat_explorer",
+  "name": "RepeatExplorer",
+  "description": "RepeatExplorer is a computational pipeline designed to identify and characterize repetitive DNA elements in next-generation sequencing data from plant and animal genomes. It employs graph-based clustering of sequence reads to identify repetitive elements and several additional programs that aid in their annotation and quantification.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "R",
+   "Perl",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2885",
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA polymorphism",
+    "url": "http://edamontology.org/topic_2885"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0798",
+    "inDefinedTermSet": "EDAM",
+    "name": "Mobile genetic elements",
+    "url": "http://edamontology.org/topic_0798"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Repeat sequence detection",
+    "url": "http://edamontology.org/operation_0379"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genome annotation",
+    "url": "http://edamontology.org/operation_0362"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/repeat_explorer",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTQ",
+      "url": "http://edamontology.org/format_1930"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid sequence",
+    "url": "http://edamontology.org/data_2977"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA-HTML",
+      "url": "http://edamontology.org/format_2310"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence search results",
+    "url": "http://edamontology.org/data_0857"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_loctree3",
+  "identifier": "loctree3",
+  "name": "LocTree3",
+  "description": "Prediction of protein subcellular localization in 18 classes for eukaryota, 6 for bacteria and 3 for archaea.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "PHP",
+   "Java",
+   "Perl",
+   "JavaScript"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0123",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein properties",
+    "url": "http://edamontology.org/topic_0123"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2229",
+    "inDefinedTermSet": "EDAM",
+    "name": "Cell biology",
+    "url": "http://edamontology.org/topic_2229"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein subcellular localisation prediction",
+    "url": "http://edamontology.org/operation_2489"
+   }
+  ],
+  "keywords": [
+   "Rostlab tools",
+   "PredictProtein"
+  ],
+  "url": "https://bio.tools/loctree3",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence record",
+    "url": "http://edamontology.org/data_2886"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein report",
+    "url": "http://edamontology.org/data_0896"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_cppredictor",
+  "identifier": "cppredictor",
+  "name": "cpPredictor",
+  "description": "Template-based predictor of RNA secondary structure. It takes a template RNA secondary structure(s) and a query RNA sequence(s) and generates secondary structure of the query sequence(s) using the provided structure(s) as a template(s). Biological reliability of the generated structures is evaluated in form of z-scores.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "MATLAB",
+   "PHP",
+   "JavaScript",
+   "Bash",
+   "C++",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0097",
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid structure analysis",
+    "url": "http://edamontology.org/topic_0097"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0099",
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA",
+    "url": "http://edamontology.org/topic_0099"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA secondary structure prediction",
+    "url": "http://edamontology.org/operation_0278"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "MBU AV CR",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/cppredictor",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA sequence",
+    "url": "http://edamontology.org/data_3495"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Dot-bracket format",
+      "url": "http://edamontology.org/format_1457"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA secondary structure",
+    "url": "http://edamontology.org/data_0880"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Dot-bracket format",
+      "url": "http://edamontology.org/format_1457"
+     },
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     },
+     {
+      "name": "SVG",
+      "url": "http://edamontology.org/format_3604"
+     },
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA secondary structure",
+    "url": "http://edamontology.org/data_0880"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     },
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical estimate score",
+    "url": "http://edamontology.org/data_0951"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_moleonline",
+  "identifier": "moleonline",
+  "name": "MOLEonline",
+  "description": "Provides a direct access to MOLE functionality and enables on-line and easy-to-use interactive channel analysis.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "C#"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0123",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein properties",
+    "url": "http://edamontology.org/topic_0123"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0128",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein interactions",
+    "url": "http://edamontology.org/topic_0128"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0821",
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzymes",
+    "url": "http://edamontology.org/topic_0821"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0820",
+    "inDefinedTermSet": "EDAM",
+    "name": "Membrane and lipoproteins",
+    "url": "http://edamontology.org/topic_0820"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0166",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structural motifs and surfaces",
+    "url": "http://edamontology.org/topic_0166"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structural motif recognition",
+    "url": "http://edamontology.org/operation_0245"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Surface rendering",
+    "url": "http://edamontology.org/operation_1816"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transmembrane protein visualisation",
+    "url": "http://edamontology.org/operation_2241"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein property calculation",
+    "url": "http://edamontology.org/operation_0250"
+   }
+  ],
+  "keywords": [
+   "LCC NCBR",
+   "Czech Republic",
+   "MOLE",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/moleonline",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "mmCIF",
+      "url": "http://edamontology.org/format_1477"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "PDB ID",
+    "url": "http://edamontology.org/data_1127"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structural quality report",
+    "url": "http://edamontology.org/data_1539"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB database entry format",
+      "url": "http://edamontology.org/format_1475"
+     },
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_msa",
+  "identifier": "msa",
+  "name": "msa",
+  "description": "Display multiple-sequence alignment. The tool is also available as R/BioConductor interface to the multiple sequence alignment algorithms ClustalW, ClustalOmega, and Muscle. All three algorithms are integrated in the package, therefore, they do not depend on any external software tools and are available for all major platforms.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Library"
+  ],
+  "programmingLanguage": [
+   "JavaScript"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0160",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence sites, features and motifs",
+    "url": "http://edamontology.org/topic_0160"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3293",
+    "inDefinedTermSet": "EDAM",
+    "name": "Phylogenetics",
+    "url": "http://edamontology.org/topic_3293"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3168",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequencing",
+    "url": "http://edamontology.org/topic_3168"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence visualisation",
+    "url": "http://edamontology.org/operation_0564"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Multiple sequence alignment",
+    "url": "http://edamontology.org/operation_0492"
+   }
+  ],
+  "keywords": [
+   "Rostlab tools",
+   "Bioconductor",
+   "BioJS"
+  ],
+  "url": "https://bio.tools/msa",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "ClustalW format",
+      "url": "http://edamontology.org/format_1982"
+     },
+     {
+      "name": "FASTA-aln",
+      "url": "http://edamontology.org/format_1984"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/data_0863"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "nbrf/pir",
+      "url": "http://edamontology.org/format_1948"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     },
+     {
+      "name": "GCG",
+      "url": "http://edamontology.org/format_1935"
+     },
+     {
+      "name": "PHYLIP format",
+      "url": "http://edamontology.org/format_1997"
+     },
+     {
+      "name": "EMBL format",
+      "url": "http://edamontology.org/format_1927"
+     },
+     {
+      "name": "GenBank format",
+      "url": "http://edamontology.org/format_1936"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid sequence",
+    "url": "http://edamontology.org/data_2977"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "nbrf/pir",
+      "url": "http://edamontology.org/format_1948"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     },
+     {
+      "name": "GCG",
+      "url": "http://edamontology.org/format_1935"
+     },
+     {
+      "name": "PHYLIP format",
+      "url": "http://edamontology.org/format_1997"
+     },
+     {
+      "name": "EMBL format",
+      "url": "http://edamontology.org/format_1927"
+     },
+     {
+      "name": "GenBank format",
+      "url": "http://edamontology.org/format_1936"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence",
+    "url": "http://edamontology.org/data_2976"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA-aln",
+      "url": "http://edamontology.org/format_1984"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/data_0863"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Image format",
+      "url": "http://edamontology.org/format_3547"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment image",
+    "url": "http://edamontology.org/data_1711"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence set",
+    "url": "http://edamontology.org/data_0850"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "GFF",
+      "url": "http://edamontology.org/format_2305"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Feature table",
+    "url": "http://edamontology.org/data_1270"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "ClustalW format",
+      "url": "http://edamontology.org/format_1982"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     },
+     {
+      "name": "PHYLIP format",
+      "url": "http://edamontology.org/format_1997"
+     },
+     {
+      "name": "PDF",
+      "url": "http://edamontology.org/format_3508"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment report",
+    "url": "http://edamontology.org/data_0867"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_caver",
+  "identifier": "caver",
+  "name": "CAVER",
+  "description": "A tool for identification and analysis of tunnels and channels in static and dynamic protein structures.",
+  "applicationCategory": [
+   "Command-line tool"
+  ],
+  "programmingLanguage": [
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein property calculation",
+    "url": "http://edamontology.org/operation_0250"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ",
+   "CAVER"
+  ],
+  "url": "https://bio.tools/caver",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_jaspar",
+  "identifier": "jaspar",
+  "name": "JASPAR",
+  "description": "JASPAR is a high-quality, open-access database that provides manually curated, non-redundant transcription factor (TF) binding profiles for six taxonomic groups (fungi, insecta, nematoda, plantae, urochordata, vertebrata). These profiles are stored as position frequency matrices (PFMs), which can be transformed into models to predict TF binding sites (TFBS) in DNA sequences. The database collects motifs both internally, analyzing sequences using a custom motif discovery pipeline, and externally from publications and other resources. All selected motifs are manually curated for quality and supporting evidence. JASPAR now offers a tool for TFBS enrichment analysis in user-provided genomic regions. Data is accessible through the JASPAR website, its RESTful API, Bioconductor, or the Python package pyJASPAR.",
+  "applicationCategory": [
+   "Database portal",
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biological databases",
+    "url": "http://edamontology.org/topic_3071"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0749",
+    "inDefinedTermSet": "EDAM",
+    "name": "Transcription factors and regulatory sites",
+    "url": "http://edamontology.org/topic_0749"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0204",
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene regulation",
+    "url": "http://edamontology.org/topic_0204"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0622",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genomics",
+    "url": "http://edamontology.org/topic_0622"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2815",
+    "inDefinedTermSet": "EDAM",
+    "name": "Human biology",
+    "url": "http://edamontology.org/topic_2815"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0780",
+    "inDefinedTermSet": "EDAM",
+    "name": "Plant biology",
+    "url": "http://edamontology.org/topic_0780"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0621",
+    "inDefinedTermSet": "EDAM",
+    "name": "Model organisms",
+    "url": "http://edamontology.org/topic_0621"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Database search",
+    "url": "http://edamontology.org/operation_2421"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transcription factor binding site prediction",
+    "url": "http://edamontology.org/operation_0445"
+   }
+  ],
+  "keywords": [
+   "ELIXIR-NO",
+   "ELIXIR-Norway",
+   "JASPAR"
+  ],
+  "url": "https://bio.tools/jaspar",
+  "input": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transcription factor name",
+    "url": "http://edamontology.org/data_2755"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transcription factor identifier",
+    "url": "http://edamontology.org/data_1077"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Taxon",
+    "url": "http://edamontology.org/data_1868"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Family name",
+    "url": "http://edamontology.org/data_2732"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Species name",
+    "url": "http://edamontology.org/data_1045"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt ID",
+    "url": "http://edamontology.org/data_2291"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Text",
+    "url": "http://edamontology.org/data_3671"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA sequence",
+    "url": "http://edamontology.org/data_3494"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "JASPAR profile ID",
+    "url": "http://edamontology.org/data_1119"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "JASPAR format",
+      "url": "http://edamontology.org/format_1367"
+     },
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "CSV",
+      "url": "http://edamontology.org/format_3752"
+     },
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     },
+     {
+      "name": "YAML",
+      "url": "http://edamontology.org/format_3750"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "JASPAR profile ID",
+    "url": "http://edamontology.org/data_1119"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_caver_analyst",
+  "identifier": "caver_analyst",
+  "name": "CAVER Analyst",
+  "description": "A tool for interactive visualization and analysis of tunnels, channels and cavities in protein structures.",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein property calculation",
+    "url": "http://edamontology.org/operation_0250"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Accessible surface calculation",
+    "url": "http://edamontology.org/operation_0384"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein secondary structure prediction",
+    "url": "http://edamontology.org/operation_0267"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ",
+   "CAVER"
+  ],
+  "url": "https://bio.tools/caver_analyst",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     },
+     {
+      "name": "AMBER top",
+      "url": "http://edamontology.org/format_3881"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XTC",
+      "url": "http://edamontology.org/format_3875"
+     },
+     {
+      "name": "NetCDF",
+      "url": "http://edamontology.org/format_3650"
+     },
+     {
+      "name": "AMBER top",
+      "url": "http://edamontology.org/format_3881"
+     },
+     {
+      "name": "trr",
+      "url": "http://edamontology.org/format_3910"
+     },
+     {
+      "name": "PSF",
+      "url": "http://edamontology.org/format_3882"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Trajectory data",
+    "url": "http://edamontology.org/data_3870"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_caver_web",
+  "identifier": "caver_web",
+  "name": "CAVER Web",
+  "description": "A web interface for identification and analysis of tunnels and channels in static protein structures with automated starting point detection.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein property calculation",
+    "url": "http://edamontology.org/operation_0250"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ",
+   "CAVER"
+  ],
+  "url": "https://bio.tools/caver_web",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_cgi",
+  "identifier": "cgi",
+  "name": "Cancer Genome Interpreter (CGI)",
+  "description": "Cancer Genome Interpreter (CGI) is designed to support the identification of tumor alterations that drive the disease and detect those that may be therapeutically actionable. CGI relies on existing knowledge collected from several resources and on computational methods that annotate the alterations in a tumor according to distinct levels of evidence.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Web application",
+   "Web API"
+  ],
+  "programmingLanguage": [
+   "Python",
+   "JavaScript"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3307",
+    "inDefinedTermSet": "EDAM",
+    "name": "Computational biology",
+    "url": "http://edamontology.org/topic_3307"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2640",
+    "inDefinedTermSet": "EDAM",
+    "name": "Oncology",
+    "url": "http://edamontology.org/topic_2640"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0091",
+    "inDefinedTermSet": "EDAM",
+    "name": "Bioinformatics",
+    "url": "http://edamontology.org/topic_0091"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Variant effect prediction",
+    "url": "http://edamontology.org/operation_0331"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene functional annotation",
+    "url": "http://edamontology.org/operation_3672"
+   }
+  ],
+  "keywords": [
+   "BBG genomic tools",
+   "RIS3CAT VEIS"
+  ],
+  "url": "https://bio.tools/cgi",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     },
+     {
+      "name": "VCF",
+      "url": "http://edamontology.org/format_3016"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence variations",
+    "url": "http://edamontology.org/data_3498"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "plain text format (unformatted)",
+      "url": "http://edamontology.org/format_1964"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Phenotype name",
+    "url": "http://edamontology.org/data_3275"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Feature table",
+    "url": "http://edamontology.org/data_1270"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Database search results",
+    "url": "http://edamontology.org/data_2080"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_predictsnp",
+  "identifier": "predictsnp",
+  "name": "PredictSNP",
+  "description": "A consensus classifier that combines six of the top performing tools for the prediction of the effects of mutation on protein function. The obtained results are provided together with annotations extracted from the Protein Mutant Database and the UniProt database.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2885",
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA polymorphism",
+    "url": "http://edamontology.org/topic_2885"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3063",
+    "inDefinedTermSet": "EDAM",
+    "name": "Medical informatics",
+    "url": "http://edamontology.org/topic_3063"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3325",
+    "inDefinedTermSet": "EDAM",
+    "name": "Rare diseases",
+    "url": "http://edamontology.org/topic_3325"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3053",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genetics",
+    "url": "http://edamontology.org/topic_3053"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Variant effect prediction",
+    "url": "http://edamontology.org/operation_0331"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "Rare Disease",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/predictsnp",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence (raw)",
+    "url": "http://edamontology.org/data_2974"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein features",
+    "url": "http://edamontology.org/data_1277"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt ID",
+    "url": "http://edamontology.org/data_2291"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_aquaria",
+  "identifier": "aquaria",
+  "name": "Aquaria",
+  "description": "Simplifying the generation of insight from protein structures through structure visualisation, annotated with protein features; loads sequence-to-structure alignments from the PSSH2 database, sequence features from UniProt and Interpro and user defined features on demand from JSON files; there is also a WebAPI (see ...).",
+  "applicationCategory": [
+   "Web API",
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0082",
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure prediction",
+    "url": "http://edamontology.org/topic_0082"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3510",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sites, features and motifs",
+    "url": "http://edamontology.org/topic_3510"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure database search",
+    "url": "http://edamontology.org/operation_0339"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence visualisation",
+    "url": "http://edamontology.org/operation_0564"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence database search",
+    "url": "http://edamontology.org/operation_0338"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure prediction",
+    "url": "http://edamontology.org/operation_0474"
+   }
+  ],
+  "keywords": [
+   "Odonoghuelab tools",
+   "Rostlab tools"
+  ],
+  "url": "https://bio.tools/aquaria",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence identifier",
+    "url": "http://edamontology.org/data_1063"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Organism identifier",
+    "url": "http://edamontology.org/data_1869"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "UniProtKB format",
+      "url": "http://edamontology.org/format_1963"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence accession (protein)",
+    "url": "http://edamontology.org/data_1096"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence-structure alignment",
+    "url": "http://edamontology.org/data_0893"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_clustal2",
+  "identifier": "clustal2",
+  "name": "Clustal 2 (Clustal W, Clustal X)",
+  "description": "Multiple sequence alignment program with a command-line interface (Clustal W) and a graphical user interface (Clustal X). The display colours allow conserved features to be highlighted for easy viewing in the alignment. It is available for several platforms, including Windows, Macintosh PowerMac, Linux and Solaris.\nNames occassionally spelled also as Clustal W2, ClustalW2, ClustalW, ClustalX, Clustal2.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Desktop application"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0084",
+    "inDefinedTermSet": "EDAM",
+    "name": "Phylogeny",
+    "url": "http://edamontology.org/topic_0084"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Multiple sequence alignment",
+    "url": "http://edamontology.org/operation_0492"
+   }
+  ],
+  "keywords": [
+   "clustal",
+   "Bioconda",
+   "galaxyPasteur",
+   "DebianMed"
+  ],
+  "url": "https://bio.tools/clustal2",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence",
+    "url": "http://edamontology.org/data_2044"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/data_0863"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_h3agwas",
+  "identifier": "h3agwas",
+  "name": "H3AGWAS",
+  "description": "Workflow for Genome Wide Association Study (QC, association study and miscellaneous functions)",
+  "applicationCategory": [
+   "Workflow"
+  ],
+  "programmingLanguage": [
+   "Other",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Mac",
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0654",
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA",
+    "url": "http://edamontology.org/topic_0654"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0622",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genomics",
+    "url": "http://edamontology.org/topic_0622"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3517",
+    "inDefinedTermSet": "EDAM",
+    "name": "GWAS study",
+    "url": "http://edamontology.org/topic_3517"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genetic variation analysis",
+    "url": "http://edamontology.org/operation_3197"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical calculation",
+    "url": "http://edamontology.org/operation_2238"
+   }
+  ],
+  "url": "https://bio.tools/h3agwas",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Binary format",
+      "url": "http://edamontology.org/format_2333"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence variations",
+    "url": "http://edamontology.org/data_3498"
+   }
+  ],
+  "output": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genotype/phenotype report",
+    "url": "http://edamontology.org/data_0920"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_carveme",
+  "identifier": "carveme",
+  "name": "CarveMe",
+  "description": "CarveMe is a python-based automated tool used for top-down genome-scale metabolic model reconstruction. It can predict an organism's uptake and secretion capabilities without requiring gap-filling, although gap-filling is also supported. Additionally, CarveMe allows the generation of microbial community models by merging single species models. The tool offers advanced features such as manual adjustment of blasting options, an orthology-based search using eggNOG-mapper (kegg-bigg branch), the ability to provide a custom media library for gap-filling, and the generation of models compatible with various SBML formats. Furthermore, CarveMe supports ensemble modeling, which helps explore how different alternative solutions can lead to diverse network structures and predict various phenotypes. During the model carving process, users can select from provided templates or create their own customized universe model to suit their specific needs.",
+  "applicationCategory": [
+   "Command-line tool"
+  ],
+  "programmingLanguage": [
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0602",
+    "inDefinedTermSet": "EDAM",
+    "name": "Molecular interactions, pathways and networks",
+    "url": "http://edamontology.org/topic_0602"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3391",
+    "inDefinedTermSet": "EDAM",
+    "name": "Omics",
+    "url": "http://edamontology.org/topic_3391"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2259",
+    "inDefinedTermSet": "EDAM",
+    "name": "Systems biology",
+    "url": "http://edamontology.org/topic_2259"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3307",
+    "inDefinedTermSet": "EDAM",
+    "name": "Computational biology",
+    "url": "http://edamontology.org/topic_3307"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Metabolic network modelling",
+    "url": "http://edamontology.org/operation_3660"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Homology-based gene prediction",
+    "url": "http://edamontology.org/operation_3663"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Scaffold gap completion",
+    "url": "http://edamontology.org/operation_3217"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Aggregation",
+    "url": "http://edamontology.org/operation_3436"
+   }
+  ],
+  "keywords": [
+   "ELIXIR-NO",
+   "ELIXIR-Norway",
+   "NTNU tools"
+  ],
+  "url": "https://bio.tools/carveme",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence",
+    "url": "http://edamontology.org/data_2976"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA sequence",
+    "url": "http://edamontology.org/data_3494"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "NCBI genome accession",
+    "url": "http://edamontology.org/data_2787"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network report",
+    "url": "http://edamontology.org/data_2984"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Cultivation parameter",
+    "url": "http://edamontology.org/data_3724"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "SBML",
+      "url": "http://edamontology.org/format_2585"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network report",
+    "url": "http://edamontology.org/data_2984"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_ontobrowser",
+  "identifier": "ontobrowser",
+  "name": "OntoBrowser",
+  "description": "The tool was developed to manage ontologies (and controlled terminologies e.g. CDISC SEND). The primary goal of the tool is to provide an online collaborative solution for expert curators to map code list terms (sourced from multiple systems/databases) to preferred ontology terms. Other key features include visualisation of ontologies in hierarchical/graph format, advanced search capabilities, peer review/approval workflow and web service access to data.",
+  "applicationCategory": [
+   "Web API",
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "SQL"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0089",
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology and terminology",
+    "url": "http://edamontology.org/topic_0089"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3345",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data identity and mapping",
+    "url": "http://edamontology.org/topic_3345"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data retrieval",
+    "url": "http://edamontology.org/operation_2422"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology visualisation",
+    "url": "http://edamontology.org/operation_3559"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Aggregation",
+    "url": "http://edamontology.org/operation_3436"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Mapping",
+    "url": "http://edamontology.org/operation_2429"
+   }
+  ],
+  "url": "https://bio.tools/ontobrowser",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "OBO",
+      "url": "http://edamontology.org/format_2549"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Taxonomy",
+    "url": "http://edamontology.org/data_3028"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology term",
+    "url": "http://edamontology.org/data_0966"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "OWL/XML",
+      "url": "http://edamontology.org/format_3262"
+     },
+     {
+      "name": "Turtle",
+      "url": "http://edamontology.org/format_3255"
+     },
+     {
+      "name": "Manchester OWL Syntax",
+      "url": "http://edamontology.org/format_3253"
+     },
+     {
+      "name": "RDF/XML",
+      "url": "http://edamontology.org/format_3261"
+     },
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "OBO file format name",
+    "url": "http://edamontology.org/data_2254"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_msaviewer",
+  "identifier": "msaviewer",
+  "name": "MSAViewer",
+  "description": "Large MSAs visualization interactively on the web.",
+  "applicationCategory": [
+   "Library"
+  ],
+  "programmingLanguage": [
+   "JavaScript"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0160",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence sites, features and motifs",
+    "url": "http://edamontology.org/topic_0160"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence visualisation",
+    "url": "http://edamontology.org/operation_0564"
+   }
+  ],
+  "keywords": [
+   "Rostlab tools",
+   "BioJS"
+  ],
+  "url": "https://bio.tools/msaviewer",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "ClustalW format",
+      "url": "http://edamontology.org/format_1982"
+     },
+     {
+      "name": "FASTA-aln",
+      "url": "http://edamontology.org/format_1984"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/data_0863"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA-aln",
+      "url": "http://edamontology.org/format_1984"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/data_0863"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Image format",
+      "url": "http://edamontology.org/format_3547"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment image",
+    "url": "http://edamontology.org/data_1711"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence set",
+    "url": "http://edamontology.org/data_0850"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "GFF",
+      "url": "http://edamontology.org/format_2305"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Feature table",
+    "url": "http://edamontology.org/data_1270"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_fireprot",
+  "identifier": "fireprot",
+  "name": "FireProt",
+  "description": "FireProt is a web server for an automated design of thermostable mutants. The design of thermostable mutants is based on the integration of structural and evolutionary information obtained from several bioinformatics databases and computational tools.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_1317",
+    "inDefinedTermSet": "EDAM",
+    "name": "Structural biology",
+    "url": "http://edamontology.org/topic_1317"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Variant effect prediction",
+    "url": "http://edamontology.org/operation_0331"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/operation_2406"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/fireprot",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment (protein)",
+    "url": "http://edamontology.org/data_1384"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence (raw)",
+    "url": "http://edamontology.org/data_2974"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "plain text format (unformatted)",
+      "url": "http://edamontology.org/format_1964"
+     },
+     {
+      "name": "PDF",
+      "url": "http://edamontology.org/format_3508"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_peffect",
+  "identifier": "peffect",
+  "name": "pEffect",
+  "description": "Prediction of type III effector proteins from protein sequence.",
+  "applicationCategory": [
+   "Command-line tool"
+  ],
+  "programmingLanguage": [
+   "Java",
+   "Perl"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3510",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sites, features and motifs",
+    "url": "http://edamontology.org/topic_3510"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein function prediction",
+    "url": "http://edamontology.org/operation_1777"
+   }
+  ],
+  "keywords": [
+   "Bromberglab tools",
+   "Rostlab tools"
+  ],
+  "url": "https://bio.tools/peffect",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA-like (text)",
+      "url": "http://edamontology.org/format_2200"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence (raw)",
+    "url": "http://edamontology.org/data_2974"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence features",
+    "url": "http://edamontology.org/data_1255"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_enzymeminer",
+  "identifier": "enzymeminer",
+  "name": "EnzymeMiner",
+  "description": "EnzymeMiner identifies putative members of enzyme families or subfamilies and facilitates the selection of promising targets for experimental characterization. Two key selection criteria are (i) the predicted solubility and (ii) the sequence identities visualised using an interactive sequence similarity network. The search query can be a sequence from the Swiss-Prot database or a custom sequence with a custom description of essential residues. The output is an interactive selection table containing annotated identified sequences.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0121",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteomics",
+    "url": "http://edamontology.org/topic_0121"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3473",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data mining",
+    "url": "http://edamontology.org/topic_3473"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0821",
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzymes",
+    "url": "http://edamontology.org/topic_0821"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence similarity search",
+    "url": "http://edamontology.org/operation_0346"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence clustering",
+    "url": "http://edamontology.org/operation_0291"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence annotation",
+    "url": "http://edamontology.org/operation_0361"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein solubility prediction",
+    "url": "http://edamontology.org/operation_0409"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/enzymeminer",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence",
+    "url": "http://edamontology.org/data_2976"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "xlsx",
+      "url": "http://edamontology.org/format_3620"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein features",
+    "url": "http://edamontology.org/data_1277"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence set (protein)",
+    "url": "http://edamontology.org/data_1233"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence cluster (protein)",
+    "url": "http://edamontology.org/data_1245"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_predictsnp2",
+  "identifier": "predictsnp2",
+  "name": "PredictSNP2",
+  "description": "A consensus classifier that combines five of the top performing tools (CADD, DANN, FATHMM, FunSeq2 and GWAVA) for the evaluation of pathogenic effect of SNPs within the human genome. The obtained results are provided together with annotations extracted from dbSNP, GenBank, Clinvar, OMIM, RegulomeDB, HaploReg, UCSC and Ensembl databases.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3063",
+    "inDefinedTermSet": "EDAM",
+    "name": "Medical informatics",
+    "url": "http://edamontology.org/topic_3063"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2533",
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA mutation",
+    "url": "http://edamontology.org/topic_2533"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3325",
+    "inDefinedTermSet": "EDAM",
+    "name": "Rare diseases",
+    "url": "http://edamontology.org/topic_3325"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0622",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genomics",
+    "url": "http://edamontology.org/topic_0622"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene functional annotation",
+    "url": "http://edamontology.org/operation_3672"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Variant classification",
+    "url": "http://edamontology.org/operation_3225"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "Rare Disease",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/predictsnp2",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "GVF",
+      "url": "http://edamontology.org/format_3019"
+     },
+     {
+      "name": "VCF",
+      "url": "http://edamontology.org/format_3016"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence variations",
+    "url": "http://edamontology.org/data_3498"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "VCF",
+      "url": "http://edamontology.org/format_3016"
+     },
+     {
+      "name": "PDF",
+      "url": "http://edamontology.org/format_3508"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence variations",
+    "url": "http://edamontology.org/data_3498"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_calfitter",
+  "identifier": "calfitter",
+  "name": "CalFitter",
+  "description": "Unified platform for comprehensive data fitting and analysis of protein thermal denaturation data. Allows simultaneous global data fitting using any combination of input data types and offers 12 protein unfolding pathway models for selection, including irreversible transitions often missing from other tools. The data fitting produces optimal parameter values, their confidence intervals, and statistical information to define unfolding pathways.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0130",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein folding, stability and design",
+    "url": "http://edamontology.org/topic_0130"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3569",
+    "inDefinedTermSet": "EDAM",
+    "name": "Applied mathematics",
+    "url": "http://edamontology.org/topic_3569"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0121",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteomics",
+    "url": "http://edamontology.org/topic_0121"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein folding analysis",
+    "url": "http://edamontology.org/operation_2415"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/calfitter",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "xlsx",
+      "url": "http://edamontology.org/format_3620"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Experimental measurement",
+    "url": "http://edamontology.org/data_3108"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "xlsx",
+      "url": "http://edamontology.org/format_3620"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Mathematical model",
+    "url": "http://edamontology.org/data_0950"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_clustalo",
+  "identifier": "clustalo",
+  "name": "Clustal Omega",
+  "description": "Multiple sequence alignment software. The name is occassionally spelled as ClustalOmega, Clustal Ω, ClustalΩ, Clustal O, ClustalO.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Library"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Multiple sequence alignment",
+    "url": "http://edamontology.org/operation_0492"
+   }
+  ],
+  "keywords": [
+   "clustal",
+   "Bioconda",
+   "galaxyPasteur",
+   "DebianMed"
+  ],
+  "url": "https://bio.tools/clustalo",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence",
+    "url": "http://edamontology.org/data_2044"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/data_0863"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_hotspot_wizard",
+  "identifier": "hotspot_wizard",
+  "name": "HotSpot Wizard",
+  "description": "An automated design of mutations and smart libraries for engineering of protein function and stability and annotation of protein structures.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript",
+   "Java"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0160",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence sites, features and motifs",
+    "url": "http://edamontology.org/topic_0160"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Variant effect prediction",
+    "url": "http://edamontology.org/operation_0331"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein geometry calculation",
+    "url": "http://edamontology.org/operation_0249"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein flexibility and motion analysis",
+    "url": "http://edamontology.org/operation_0244"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment analysis (site correlation)",
+    "url": "http://edamontology.org/operation_0449"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Multiple sequence alignment",
+    "url": "http://edamontology.org/operation_0492"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein secondary structure assignment",
+    "url": "http://edamontology.org/operation_0319"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein feature detection",
+    "url": "http://edamontology.org/operation_3092"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Accessible surface calculation",
+    "url": "http://edamontology.org/operation_0384"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein-ligand docking",
+    "url": "http://edamontology.org/operation_0482"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/hotspot_wizard",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence",
+    "url": "http://edamontology.org/data_2976"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     },
+     {
+      "name": "SMILES",
+      "url": "http://edamontology.org/format_1196"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Small molecule structure",
+    "url": "http://edamontology.org/data_1463"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment (protein)",
+    "url": "http://edamontology.org/data_1384"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein report",
+    "url": "http://edamontology.org/data_0896"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "DNA sequence (raw)",
+    "url": "http://edamontology.org/data_3497"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "newick",
+      "url": "http://edamontology.org/format_1910"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Phylogenetic tree",
+    "url": "http://edamontology.org/data_0872"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein-ligand complex",
+    "url": "http://edamontology.org/data_1461"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_caver_pymol_plugin",
+  "identifier": "caver_pymol_plugin",
+  "name": "CAVER PyMOL plugin",
+  "description": "A PyMOL plugin for identification and analysis of tunnels and channels in static protein structures.",
+  "applicationCategory": [
+   "Library",
+   "Plug-in"
+  ],
+  "programmingLanguage": [
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein property calculation",
+    "url": "http://edamontology.org/operation_0250"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ",
+   "CAVER"
+  ],
+  "url": "https://bio.tools/caver_pymol_plugin",
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversitygazetteers",
+  "identifier": "DiversityGazetteers",
+  "name": "DiversityGazetteers",
+  "description": "DiversityGazetteers  (DWB-DG) is an application of Diversity Workbench (DWB). It might be installed as part of a DWB environment, but also as a stand-alone application, e. g., in a local installation. Each DWB module is devoted to a specific data domain. DG is used to manage and visualize geographical dictionary entries with information about places (particular regions and locations). In conjunction with an automatically created background map, equipped with world coordinates, collections of Microsoft SQL Geometry Objects (points, lines and areas) are displayed in their geographical context. Users with administrator rights may import places from other sources (e. g., ArcView shape files) or create places manually using the integrated Diversity GIS Editor. They may also organise the classification and naming of places.",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3855",
+    "inDefinedTermSet": "EDAM",
+    "name": "Environmental science",
+    "url": "http://edamontology.org/topic_3855"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Visualisation",
+    "url": "http://edamontology.org/operation_0337"
+   }
+  ],
+  "url": "https://bio.tools/DiversityGazetteers",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Binary format",
+      "url": "http://edamontology.org/format_2333"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Map",
+    "url": "http://edamontology.org/data_1274"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology data",
+    "url": "http://edamontology.org/data_2353"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Binary format",
+      "url": "http://edamontology.org/format_2333"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Map",
+    "url": "http://edamontology.org/data_1274"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology data",
+    "url": "http://edamontology.org/data_2353"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversitymobile",
+  "identifier": "DiversityMobile",
+  "name": "DiversityMobile",
+  "description": "DiversityMobile (DWB-DM) is an smartphone app for biologists, ecologists and registered citizen scientists being experienced in recording observation data in the field. Data are entered into the app database which follows the Diversity Workbench (DWB) information model. Mechanisms of automated recording and storage of GPS data and manual recording of multimedia data are included. Data entry might be done offline. The DM virtual environment covers webservices for bidirectional data transfer with an institutional data repository. Features include the recording of research data and metadata with automatic inclusion of GPS data, recording of multimedia data (images, audio, video), data transfer from and to an institutional data repository via Wi-Fi. DM webservices are ready to download standardised pick lists with names of organisms, geographic maps and already available metadata of individual research projects. DM webservices are also used to upload research data to the data repository.",
+  "applicationCategory": [
+   "Web API",
+   "Web service"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3050",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biodiversity",
+    "url": "http://edamontology.org/topic_3050"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   }
+  ],
+  "url": "https://bio.tools/DiversityMobile",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Biodiversity data",
+    "url": "http://edamontology.org/data_3707"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Ecological data",
+    "url": "http://edamontology.org/data_3736"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "JPG",
+      "url": "http://edamontology.org/format_3579"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Image",
+    "url": "http://edamontology.org/data_2968"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Biodiversity data",
+    "url": "http://edamontology.org/data_3707"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Ecological data",
+    "url": "http://edamontology.org/data_3736"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "JPG",
+      "url": "http://edamontology.org/format_3579"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Image",
+    "url": "http://edamontology.org/data_2968"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversityprojects",
+  "identifier": "DiversityProjects",
+  "name": "DiversityProjects",
+  "description": "DiversityProjects (DWB-DP) is an application of Diversity Workbench (DWB). It might be installed as part of a DWB environment, but also as a stand-alone application, e. g., in a local installation. Each DWB module is devoted to a specific data domain. DP is focused on the management of (research) projects,  data collections, processed by the other DWB modules. It is managing metadata , labels, descriptors, and descriptions of projects, including data package-specific settings for a metadata standard-compliant publication. DP is organising the storage of (legal) documents, permits, information on publications  and multimedia resources. DP is handling roles of persons and organisations involved in collection and research projects. The tool is organising project classification and hierarchy in relation to sister and umbrella projects as well as the storage of each type of stable identifier related to data packages. DP is managing issues on web presentation of data collections.",
+  "applicationCategory": [
+   "Web service",
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3678",
+    "inDefinedTermSet": "EDAM",
+    "name": "Experimental design and studies",
+    "url": "http://edamontology.org/topic_3678"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Validation",
+    "url": "http://edamontology.org/operation_2428"
+   }
+  ],
+  "url": "https://bio.tools/DiversityProjects",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Identifier",
+    "url": "http://edamontology.org/data_0842"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Identifier",
+    "url": "http://edamontology.org/data_0842"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversityreferences",
+  "identifier": "DiversityReferences",
+  "name": "DiversityReferences",
+  "description": "DiversityReferences (DWB-DR) is an application of Diversity Workbench (DWB). It might be installed as part of a DWB environment, but also as a stand-alone application, e. g., in a local installation. Each DWB module is devoted to a specific data domain. DR is focussed on the management of bibliographic data about each kind of scientific publications. The tool is handling literature annotations, abstracts, keywords and any kind of descriptors and publication object identifiers. DR is able to import and export literature citations and is used to organise documents and multimedia resources.",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3068",
+    "inDefinedTermSet": "EDAM",
+    "name": "Literature and language",
+    "url": "http://edamontology.org/topic_3068"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Annotation",
+    "url": "http://edamontology.org/operation_0226"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   }
+  ],
+  "url": "https://bio.tools/DiversityReferences",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_atlasgeneticsoncology",
+  "identifier": "atlasgeneticsoncology",
+  "name": "AGCOH",
+  "description": "The Atlas of Genetics and Cytogenetics in Oncology and Haematology is a peer-reviewed internet journal/encyclopaedia/database focused on genes implicated in cancer, cytogenetics and clinical entities in cancer and cancer-prone hereditary diseases. The main goal of the Atlas is to provide review articles that describe complementary topics, namely, genes, genetic abnormalities, histopathology, clinical diagnoses and a large iconography.",
+  "applicationCategory": [
+   "Database portal"
+  ],
+  "programmingLanguage": [
+   "Perl"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3303",
+    "inDefinedTermSet": "EDAM",
+    "name": "Medicine",
+    "url": "http://edamontology.org/topic_3303"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Visualisation",
+    "url": "http://edamontology.org/operation_0337"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Query and retrieval",
+    "url": "http://edamontology.org/operation_0224"
+   }
+  ],
+  "url": "https://bio.tools/atlasgeneticsoncology",
+  "input": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Database search results",
+    "url": "http://edamontology.org/data_2080"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Article",
+    "url": "http://edamontology.org/data_0971"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_brenda",
+  "identifier": "brenda",
+  "name": "BRENDA",
+  "description": "Internationally leading information system on all aspects of enzymes, including function, structure, involvement in diseases, application, engineering, and molecular properties. The database includes hundreds of milllions of enzyme data and is compiled from manual literature annotation, data integration from other databases and predicted enzyme functions and locations.",
+  "applicationCategory": [
+   "Database portal"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0091",
+    "inDefinedTermSet": "EDAM",
+    "name": "Bioinformatics",
+    "url": "http://edamontology.org/topic_0091"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3292",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biochemistry",
+    "url": "http://edamontology.org/topic_3292"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0821",
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzymes",
+    "url": "http://edamontology.org/topic_0821"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3297",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biotechnology",
+    "url": "http://edamontology.org/topic_3297"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3473",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data mining",
+    "url": "http://edamontology.org/topic_3473"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3344",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biomedical science",
+    "url": "http://edamontology.org/topic_3344"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Database search",
+    "url": "http://edamontology.org/operation_2421"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence similarity search",
+    "url": "http://edamontology.org/operation_0346"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Visualisation",
+    "url": "http://edamontology.org/operation_0337"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Text mining",
+    "url": "http://edamontology.org/operation_0306"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genome feature comparison",
+    "url": "http://edamontology.org/operation_3194"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genome visualisation",
+    "url": "http://edamontology.org/operation_3208"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Literature search",
+    "url": "http://edamontology.org/operation_0305"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence database search",
+    "url": "http://edamontology.org/operation_0338"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network visualisation",
+    "url": "http://edamontology.org/operation_3083"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structural similarity search",
+    "url": "http://edamontology.org/operation_0360"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transmembrane protein prediction",
+    "url": "http://edamontology.org/operation_0269"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transmembrane protein visualisation",
+    "url": "http://edamontology.org/operation_2241"
+   }
+  ],
+  "keywords": [
+   "de.NBI",
+   "DSMZ Digital Diversity"
+  ],
+  "url": "https://bio.tools/brenda",
+  "input": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Organism name",
+    "url": "http://edamontology.org/data_2909"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Compound name",
+    "url": "http://edamontology.org/data_0990"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene name",
+    "url": "http://edamontology.org/data_2299"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "PDB ID",
+    "url": "http://edamontology.org/data_1127"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt ID",
+    "url": "http://edamontology.org/data_2291"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt accession",
+    "url": "http://edamontology.org/data_3021"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Reaction ID",
+    "url": "http://edamontology.org/data_2108"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network name",
+    "url": "http://edamontology.org/data_2342"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network accession",
+    "url": "http://edamontology.org/data_2365"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "PubMed ID",
+    "url": "http://edamontology.org/data_1187"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Strain name",
+    "url": "http://edamontology.org/data_1046"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "NCBI taxonomy ID",
+    "url": "http://edamontology.org/data_1179"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology name",
+    "url": "http://edamontology.org/data_1051"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzyme name",
+    "url": "http://edamontology.org/data_1012"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "EC number",
+    "url": "http://edamontology.org/data_1011"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzyme kinetics data",
+    "url": "http://edamontology.org/data_2024"
+   }
+  ],
+  "output": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt ID",
+    "url": "http://edamontology.org/data_2291"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "PDB ID",
+    "url": "http://edamontology.org/data_1127"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt accession",
+    "url": "http://edamontology.org/data_3021"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Reaction ID",
+    "url": "http://edamontology.org/data_2108"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network name",
+    "url": "http://edamontology.org/data_2342"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network accession",
+    "url": "http://edamontology.org/data_2365"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Strain name",
+    "url": "http://edamontology.org/data_1046"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Organism name",
+    "url": "http://edamontology.org/data_2909"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "NCBI taxonomy ID",
+    "url": "http://edamontology.org/data_1179"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "SCOP domain identifier",
+    "url": "http://edamontology.org/data_1039"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "CATH identifier",
+    "url": "http://edamontology.org/data_2700"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzyme name",
+    "url": "http://edamontology.org/data_1012"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "EC number",
+    "url": "http://edamontology.org/data_1011"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Enzyme kinetics data",
+    "url": "http://edamontology.org/data_2024"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_the_genomic_hyperbrowser",
+  "identifier": "the_genomic_hyperbrowser",
+  "name": "The Genomic HyperBrowser",
+  "description": "A generic web-based system, providing statistical methodology and computing power to handle a variety of biological inquires on genomic datasets.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0622",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genomics",
+    "url": "http://edamontology.org/topic_0622"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0160",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence sites, features and motifs",
+    "url": "http://edamontology.org/topic_0160"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2269",
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistics and probability",
+    "url": "http://edamontology.org/topic_2269"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3173",
+    "inDefinedTermSet": "EDAM",
+    "name": "Epigenomics",
+    "url": "http://edamontology.org/topic_3173"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3308",
+    "inDefinedTermSet": "EDAM",
+    "name": "Transcriptomics",
+    "url": "http://edamontology.org/topic_3308"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genome feature comparison",
+    "url": "http://edamontology.org/operation_3194"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical calculation",
+    "url": "http://edamontology.org/operation_2238"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Gene expression correlation",
+    "url": "http://edamontology.org/operation_3463"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Heat map generation",
+    "url": "http://edamontology.org/operation_0531"
+   }
+  ],
+  "url": "https://bio.tools/the_genomic_hyperbrowser",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     },
+     {
+      "name": "BED",
+      "url": "http://edamontology.org/format_3003"
+     },
+     {
+      "name": "WIG",
+      "url": "http://edamontology.org/format_3005"
+     },
+     {
+      "name": "GTrack",
+      "url": "http://edamontology.org/format_3164"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Annotation track",
+    "url": "http://edamontology.org/data_3002"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     },
+     {
+      "name": "BED",
+      "url": "http://edamontology.org/format_3003"
+     },
+     {
+      "name": "WIG",
+      "url": "http://edamontology.org/format_3005"
+     },
+     {
+      "name": "GTrack",
+      "url": "http://edamontology.org/format_3164"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Experimental measurement",
+    "url": "http://edamontology.org/data_3108"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_scenery",
+  "identifier": "scenery",
+  "name": "SCENERY",
+  "description": "Apply standard pre-processing, statistical analysis, advanced visualization methods and network reconstruction methods on single-cell cytometry data. It has an open architecture that allows power users to extend its functionalities by submitting their own machine learning methods.",
+  "applicationCategory": [
+   "Web service"
+  ],
+  "programmingLanguage": [
+   "R",
+   "Java",
+   "SQL",
+   "JavaScript",
+   "PHP"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3307",
+    "inDefinedTermSet": "EDAM",
+    "name": "Computational biology",
+    "url": "http://edamontology.org/topic_3307"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0121",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteomics",
+    "url": "http://edamontology.org/topic_0121"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2269",
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistics and probability",
+    "url": "http://edamontology.org/topic_2269"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0602",
+    "inDefinedTermSet": "EDAM",
+    "name": "Molecular interactions, pathways and networks",
+    "url": "http://edamontology.org/topic_0602"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0804",
+    "inDefinedTermSet": "EDAM",
+    "name": "Immunology",
+    "url": "http://edamontology.org/topic_0804"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical modelling",
+    "url": "http://edamontology.org/operation_3664"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Regression analysis",
+    "url": "http://edamontology.org/operation_3659"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Standardisation and normalisation",
+    "url": "http://edamontology.org/operation_3435"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network visualisation",
+    "url": "http://edamontology.org/operation_3083"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical inference",
+    "url": "http://edamontology.org/operation_3658"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network prediction",
+    "url": "http://edamontology.org/operation_3439"
+   }
+  ],
+  "keywords": [
+   "Proteomics"
+  ],
+  "url": "https://bio.tools/scenery",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Matrix",
+    "url": "http://edamontology.org/data_2082"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Biological pathway or network report format",
+      "url": "http://edamontology.org/format_3166"
+     },
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "Cytoscape input file format",
+      "url": "http://edamontology.org/format_3477"
+     },
+     {
+      "name": "svg",
+      "url": "http://edamontology.org/format_3604"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network",
+    "url": "http://edamontology.org/data_2600"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_morpheus-framework",
+  "identifier": "morpheus-framework",
+  "name": "Morpheus",
+  "description": "Morpheus is an open-source modeling and simulation framework for multi-scale and multicellular biological systems. The GUI allows to construct and simulate models from gene regulation, metabolism and signaling to tissue morphogenesis and their multi-scale feedbacks without the need to program. Morpheus is based on declarative modeling in biological terms and mathematical expressions and internally uses the domain-specific language MorpheusML, allowing for rapid model prototyping without extra code-compilation. Morpheus supports cell-based model formalisms, ODEs, PDEs, rule-based models, SBML models etc. (all freely coupled) as well as image-based modeling. It renders results in customizable 2D and 3D images or movies and offers analysis tools to extract features right during simulation. The plugin architecture makes it extensible. Binary installers are available for all major OS from the Morpheus homepage together with online courses, a public model repository and many more resources.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C++"
+  ],
+  "operatingSystem": [
+   "Mac",
+   "Linux",
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2259",
+    "inDefinedTermSet": "EDAM",
+    "name": "Systems biology",
+    "url": "http://edamontology.org/topic_2259"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2840",
+    "inDefinedTermSet": "EDAM",
+    "name": "Toxicology",
+    "url": "http://edamontology.org/topic_2840"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3376",
+    "inDefinedTermSet": "EDAM",
+    "name": "Medicines research and development",
+    "url": "http://edamontology.org/topic_3376"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2229",
+    "inDefinedTermSet": "EDAM",
+    "name": "Cell biology",
+    "url": "http://edamontology.org/topic_2229"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3064",
+    "inDefinedTermSet": "EDAM",
+    "name": "Developmental biology",
+    "url": "http://edamontology.org/topic_3064"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3895",
+    "inDefinedTermSet": "EDAM",
+    "name": "Synthetic biology",
+    "url": "http://edamontology.org/topic_3895"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3306",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biophysics",
+    "url": "http://edamontology.org/topic_3306"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3569",
+    "inDefinedTermSet": "EDAM",
+    "name": "Applied mathematics",
+    "url": "http://edamontology.org/topic_3569"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway visualisation",
+    "url": "http://edamontology.org/operation_3926"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Modelling and simulation",
+    "url": "http://edamontology.org/operation_2426"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Network analysis",
+    "url": "http://edamontology.org/operation_3927"
+   }
+  ],
+  "keywords": [
+   "COVID-19"
+  ],
+  "url": "https://bio.tools/morpheus-framework",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "SBML",
+      "url": "http://edamontology.org/format_2585"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network",
+    "url": "http://edamontology.org/data_2600"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "SVG",
+      "url": "http://edamontology.org/format_3604"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network",
+    "url": "http://edamontology.org/data_2600"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "PNG",
+      "url": "http://edamontology.org/format_3603"
+     },
+     {
+      "name": "SVG",
+      "url": "http://edamontology.org/format_3604"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Cell migration track image",
+    "url": "http://edamontology.org/data_3449"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XYZ",
+      "url": "http://edamontology.org/format_3877"
+     },
+     {
+      "name": "MPEG-4",
+      "url": "http://edamontology.org/format_3997"
+     },
+     {
+      "name": "CSV",
+      "url": "http://edamontology.org/format_3752"
+     },
+     {
+      "name": "PNG",
+      "url": "http://edamontology.org/format_3603"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Trajectory data",
+    "url": "http://edamontology.org/data_3870"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_caverdock",
+  "identifier": "caverdock",
+  "name": "CaverDock",
+  "description": "Performs rapid analysis of transport processes in proteins. It models the transportation of a ligand from outside environment into the protein active or binding site and vice versa. It implements a novel algorithm to produce contiguous ligand trajectory and estimation of a binding energy along the pathway. The current version uses CAVER for pathway identification and heavily modified Autodock Vina as a docking engine.",
+  "applicationCategory": [
+   "Command-line tool"
+  ],
+  "programmingLanguage": [
+   "C++",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0154",
+    "inDefinedTermSet": "EDAM",
+    "name": "Small molecules",
+    "url": "http://edamontology.org/topic_0154"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein-ligand docking",
+    "url": "http://edamontology.org/operation_0482"
+   }
+  ],
+  "keywords": [
+   "CAVER",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/caverdock",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure",
+    "url": "http://edamontology.org/data_1460"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Small molecule structure",
+    "url": "http://edamontology.org/data_1463"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "raw",
+      "url": "http://edamontology.org/format_1957"
+     },
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure report",
+    "url": "http://edamontology.org/data_1537"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_vcell",
+  "identifier": "vcell",
+  "name": "VCell",
+  "description": "VCell (Virtual Cell) is a software for modeling and simulation of cell biological systems.  It is built on a central database and disseminated as a web application. It includes \n deterministic (compartmental ODE or reaction-diffusion-advection PDE with support for 2D kinematics), stochastic (SSA solvers), spatial stochastic (reaction-diffusion with Smoldyn), hybrid deterministic/stochastic and network-free agent-based simulations. There is support for rule-based modeling (BioNetGen and NFSim), spatial features such as membrane flux, lateral membrane diffusion, electrophysiology, geometries from 2D or 3D microscope images or analytical expressions.",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "Java"
+  ],
+  "operatingSystem": [
+   "Mac",
+   "Windows",
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3307",
+    "inDefinedTermSet": "EDAM",
+    "name": "Computational biology",
+    "url": "http://edamontology.org/topic_3307"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2259",
+    "inDefinedTermSet": "EDAM",
+    "name": "Systems biology",
+    "url": "http://edamontology.org/topic_2259"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Modelling and simulation",
+    "url": "http://edamontology.org/operation_2426"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Visualisation",
+    "url": "http://edamontology.org/operation_0337"
+   }
+  ],
+  "url": "https://bio.tools/vcell",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "SBML",
+      "url": "http://edamontology.org/format_2585"
+     },
+     {
+      "name": "SED-ML",
+      "url": "http://edamontology.org/format_3685"
+     },
+     {
+      "name": "COMBINE OMEX",
+      "url": "http://edamontology.org/format_3686"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Kinetic model",
+    "url": "http://edamontology.org/data_3241"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "SBML",
+      "url": "http://edamontology.org/format_2585"
+     },
+     {
+      "name": "SED-ML",
+      "url": "http://edamontology.org/format_3685"
+     },
+     {
+      "name": "COMBINE OMEX",
+      "url": "http://edamontology.org/format_3686"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Pathway or network",
+    "url": "http://edamontology.org/data_2600"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "SBML",
+      "url": "http://edamontology.org/format_2585"
+     },
+     {
+      "name": "SED-ML",
+      "url": "http://edamontology.org/format_3685"
+     },
+     {
+      "name": "COMBINE OMEX",
+      "url": "http://edamontology.org/format_3686"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Simulation",
+    "url": "http://edamontology.org/data_3869"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "SBML",
+      "url": "http://edamontology.org/format_2585"
+     },
+     {
+      "name": "SED-ML",
+      "url": "http://edamontology.org/format_3685"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Kinetic model",
+    "url": "http://edamontology.org/data_3241"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_profisis",
+  "identifier": "profisis",
+  "name": "PROFisis",
+  "description": "Prediction of protein-protein interaction sites identified from sequence.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Web application"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0128",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein interactions",
+    "url": "http://edamontology.org/topic_0128"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein-protein interaction prediction",
+    "url": "http://edamontology.org/operation_2464"
+   }
+  ],
+  "keywords": [
+   "Rostlab tools",
+   "PredictProtein"
+  ],
+  "url": "https://bio.tools/profisis",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "FASTA-like (text)",
+      "url": "http://edamontology.org/format_2200"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence record",
+    "url": "http://edamontology.org/data_2886"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Protein report format",
+      "url": "http://edamontology.org/format_2062"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid features",
+    "url": "http://edamontology.org/data_1276"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_msqrob",
+  "identifier": "msqrob",
+  "name": "MSqRob",
+  "description": "Allows a user to do quantitative protein-level statistical inference on label-free LC-MS proteomics data. Fold changes, p values and false discovery rates are estimated.The app allows for an easy-to-use graphical user interface starting from MaxQuant search results that requires no programming skills.",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "R"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0121",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteomics",
+    "url": "http://edamontology.org/topic_0121"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical inference",
+    "url": "http://edamontology.org/operation_3658"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Statistical modelling",
+    "url": "http://edamontology.org/operation_3664"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Standardisation and normalisation",
+    "url": "http://edamontology.org/operation_3435"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Regression analysis",
+    "url": "http://edamontology.org/operation_3659"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Differential protein expression analysis",
+    "url": "http://edamontology.org/operation_3741"
+   }
+  ],
+  "keywords": [
+   "Proteomics"
+  ],
+  "url": "https://bio.tools/msqrob",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence search results",
+    "url": "http://edamontology.org/data_0857"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "xls",
+      "url": "http://edamontology.org/format_3468"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Experiment report",
+    "url": "http://edamontology.org/data_2531"
+   }
+  ],
+  "output": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Plot",
+    "url": "http://edamontology.org/data_2884"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "xls",
+      "url": "http://edamontology.org/format_3468"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Report",
+    "url": "http://edamontology.org/data_2048"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversitycollection",
+  "identifier": "DiversityCollection",
+  "name": "DiversityCollection",
+  "description": "DiversityCollection (DWB-DC) is an application of the Diversity Workbench (DWB). It might be installed as part of a DWB environment, but also as a stand-alone application, e. g., in a local installation. Each DWB module is devoted to a specific data domain. DC is designed for data describing collection events, collections, collection vouchers and specimens, parts of specimens, as well as observation and occurrence data with assigned multimedia objects and documents. It is processing any action concerning the gathering, storage, transaction and treatment of specimens in a collection and is also appropriate to store observation data with analyses added. DC is unique among  collection management systems by its focus on biological relations between organisms linked together as one or more specimens or observations (e. g., host, parasite, hyperparasite, symbionts, etc.) and by its interoperability through internal and external services.",
+  "applicationCategory": [
+   "Web service",
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3299",
+    "inDefinedTermSet": "EDAM",
+    "name": "Evolutionary biology",
+    "url": "http://edamontology.org/topic_3299"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3301",
+    "inDefinedTermSet": "EDAM",
+    "name": "Microbiology",
+    "url": "http://edamontology.org/topic_3301"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0780",
+    "inDefinedTermSet": "EDAM",
+    "name": "Plant biology",
+    "url": "http://edamontology.org/topic_0780"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3500",
+    "inDefinedTermSet": "EDAM",
+    "name": "Zoology",
+    "url": "http://edamontology.org/topic_3500"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3678",
+    "inDefinedTermSet": "EDAM",
+    "name": "Experimental design and studies",
+    "url": "http://edamontology.org/topic_3678"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3679",
+    "inDefinedTermSet": "EDAM",
+    "name": "Animal study",
+    "url": "http://edamontology.org/topic_3679"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3382",
+    "inDefinedTermSet": "EDAM",
+    "name": "Imaging",
+    "url": "http://edamontology.org/topic_3382"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0622",
+    "inDefinedTermSet": "EDAM",
+    "name": "Genomics",
+    "url": "http://edamontology.org/topic_0622"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3050",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biodiversity",
+    "url": "http://edamontology.org/topic_3050"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Analysis",
+    "url": "http://edamontology.org/operation_2945"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Visualisation",
+    "url": "http://edamontology.org/operation_0337"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Conversion",
+    "url": "http://edamontology.org/operation_3434"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Annotation",
+    "url": "http://edamontology.org/operation_0226"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Generation",
+    "url": "http://edamontology.org/operation_3429"
+   }
+  ],
+  "url": "https://bio.tools/DiversityCollection",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Biodiversity data",
+    "url": "http://edamontology.org/data_3707"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Ecological data",
+    "url": "http://edamontology.org/data_3736"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Biodiversity data",
+    "url": "http://edamontology.org/data_3707"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "Biodiversity data format",
+      "url": "http://edamontology.org/format_3706"
+     },
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Ecological data",
+    "url": "http://edamontology.org/data_3736"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversityexsiccatae",
+  "identifier": "DiversityExsiccatae",
+  "name": "DiversityExsiccatae",
+  "description": "DiversityExsiccatae (DWB-DE) is an application of Diversity Workbench (DWB). It might be installed as part of a DWB environment, but also as a stand-alone application, e. g., in a local installation. Each DWB module is devoted to a specific data domain. DE is currently used in a core installation at the SNSB, Botanische Staatssammlung München to manage bibliographic information and standardized abbreviations of botanical and mycological exsiccatae in a global index. Exsiccatae are series of specimen collections which are distributed as a publication together with assigned printed matters. They are usually available in multiple copies worldwide. This standard list for Exsiccatal series with unique and stable series identifers is increasing the efficiency of the digitization of botanical and mycological collections.",
+  "applicationCategory": [
+   "Database portal",
+   "Desktop application",
+   "Web service"
+  ],
+  "programmingLanguage": [
+   "JSP",
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3068",
+    "inDefinedTermSet": "EDAM",
+    "name": "Literature and language",
+    "url": "http://edamontology.org/topic_3068"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   }
+  ],
+  "url": "https://bio.tools/DiversityExsiccatae",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Identifier",
+    "url": "http://edamontology.org/data_0842"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversityimageinspector",
+  "identifier": "DiversityImageInspector",
+  "name": "DiversityImageInspector",
+  "description": "The DiversityImageInspector (DWB-DII) is a stand-alone application of Diversity Workbench (DWB). It might be installed as an independent tool. The DII is designed to scan a bulk of images for included barcodes and relevant EXIF metadata (e.g., GPS coordinates, date, time) and returns the results in a table. The table can be saved as text file (CSV) along with the corresponding image file names. DII is able to rename the multimedia input files by adding a prefix to the file name to fit, e. g., the naming convention of an image data repository. This feature might be used to organize the multimedia file storage, e. g. on a web server. DII combines the functions of two freeware tools: (a) ExifTool, to extract the search tags from the metadata of an image and (b) ZBar bar code reader, to find barcodes within a picture. The latter software supports barcodes of the following types: EAN-13/UPC-A, UPC-E, EAN-8, Code 128, Code 39, Interleaved 2 of 5 and QR Code.",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Calculation",
+    "url": "http://edamontology.org/operation_3438"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Image analysis",
+    "url": "http://edamontology.org/operation_3443"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   }
+  ],
+  "url": "https://bio.tools/DiversityImageInspector",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Format (by type of data)",
+      "url": "http://edamontology.org/format_2350"
+     },
+     {
+      "name": "Binary format",
+      "url": "http://edamontology.org/format_2333"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Image",
+    "url": "http://edamontology.org/data_2968"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text data",
+    "url": "http://edamontology.org/data_2526"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Identifier",
+    "url": "http://edamontology.org/data_0842"
+   },
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Text",
+    "url": "http://edamontology.org/data_3671"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_diversitytaxonnames",
+  "identifier": "DiversityTaxonNames",
+  "name": "DiversityTaxonNames",
+  "description": "DiversityTaxonNames (DWB-DTN) is an application of Diversity Workbench (DWB). It might be installed as part of a DWB environment, but also as a stand-alone application, e. g., in a local installation. Each DWB module is devoted to a specific data domain. DTN is focused on the management of taxon names. Next to nomenclatural information on zoological, botanical, mycological, palaeontological, bacteriological taxon names like typification with type specimens, homotypic synonyms, basionyms, protologues and references according to the rules of the respective International Codes, it is designed to document taxonomic information. This includes accepted names (current names), heterotypic synonyms, name concepts and classifications as well as the history of changing taxonomic relations. DTN is also used to organise common names in various languages and regional taxon checklists with information on red list status and other taxon-based (ecological and nature conservation) parameters.",
+  "applicationCategory": [
+   "Web API",
+   "Web service",
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "C#"
+  ],
+  "operatingSystem": [
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3070",
+    "inDefinedTermSet": "EDAM",
+    "name": "Biology",
+    "url": "http://edamontology.org/topic_3070"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0089",
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology and terminology",
+    "url": "http://edamontology.org/topic_0089"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3071",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data management",
+    "url": "http://edamontology.org/topic_3071"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Analysis",
+    "url": "http://edamontology.org/operation_2945"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data handling",
+    "url": "http://edamontology.org/operation_2409"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Classification",
+    "url": "http://edamontology.org/operation_2990"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Conversion",
+    "url": "http://edamontology.org/operation_3434"
+   }
+  ],
+  "url": "https://bio.tools/DiversityTaxonNames",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Taxonomy",
+    "url": "http://edamontology.org/data_3028"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     },
+     {
+      "name": "RDF format",
+      "url": "http://edamontology.org/format_2376"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Taxonomy",
+    "url": "http://edamontology.org/data_3028"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_norsnet",
+  "identifier": "norsnet",
+  "name": "NorsNet",
+  "description": "Identification unstructured loops from sequence.",
+  "applicationCategory": [
+   "Command-line tool",
+   "Web application"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_2814",
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structure analysis",
+    "url": "http://edamontology.org/topic_2814"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein secondary structure prediction (coils)",
+    "url": "http://edamontology.org/operation_0470"
+   }
+  ],
+  "keywords": [
+   "Rostlab tools",
+   "PredictProtein"
+  ],
+  "url": "https://bio.tools/norsnet",
+  "input": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence record",
+    "url": "http://edamontology.org/data_2886"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "TSV",
+      "url": "http://edamontology.org/format_3475"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein report",
+    "url": "http://edamontology.org/data_0896"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_predictprotein_open",
+  "identifier": "predictprotein_open",
+  "name": "PredictProtein Open",
+  "description": "Prediction of various aspects of protein structure and function. A user may submit a query to the server without registration.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0080",
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence analysis",
+    "url": "http://edamontology.org/topic_0080"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0081",
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure analysis",
+    "url": "http://edamontology.org/topic_0081"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3473",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data mining",
+    "url": "http://edamontology.org/topic_3473"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0092",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data visualisation",
+    "url": "http://edamontology.org/topic_0092"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3474",
+    "inDefinedTermSet": "EDAM",
+    "name": "Machine learning",
+    "url": "http://edamontology.org/topic_3474"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_1775",
+    "inDefinedTermSet": "EDAM",
+    "name": "Function analysis",
+    "url": "http://edamontology.org/topic_1775"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0089",
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology and terminology",
+    "url": "http://edamontology.org/topic_0089"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein subcellular localisation prediction",
+    "url": "http://edamontology.org/operation_2489"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transmembrane protein visualisation",
+    "url": "http://edamontology.org/operation_2241"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Taxonomic classification",
+    "url": "http://edamontology.org/operation_3460"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein binding site prediction",
+    "url": "http://edamontology.org/operation_2575"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Literature search",
+    "url": "http://edamontology.org/operation_0305"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence analysis",
+    "url": "http://edamontology.org/operation_2479"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Residue interaction prediction",
+    "url": "http://edamontology.org/operation_0272"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence profile generation",
+    "url": "http://edamontology.org/operation_0296"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Ontology visualisation",
+    "url": "http://edamontology.org/operation_3559"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Text mining",
+    "url": "http://edamontology.org/operation_0306"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein secondary structure prediction",
+    "url": "http://edamontology.org/operation_0267"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Variant classification",
+    "url": "http://edamontology.org/operation_3225"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Heat map generation",
+    "url": "http://edamontology.org/operation_0531"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein function prediction",
+    "url": "http://edamontology.org/operation_1777"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein signal peptide detection",
+    "url": "http://edamontology.org/operation_0418"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein-protein interaction prediction",
+    "url": "http://edamontology.org/operation_2464"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence similarity search",
+    "url": "http://edamontology.org/operation_0346"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein feature detection",
+    "url": "http://edamontology.org/operation_3092"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence annotation",
+    "url": "http://edamontology.org/operation_0361"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data retrieval",
+    "url": "http://edamontology.org/operation_2422"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein structural motif recognition",
+    "url": "http://edamontology.org/operation_0245"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Helical wheel drawing",
+    "url": "http://edamontology.org/operation_2485"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein modelling (mutation)",
+    "url": "http://edamontology.org/operation_0331"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence visualisation",
+    "url": "http://edamontology.org/operation_0564"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein property calculation",
+    "url": "http://edamontology.org/operation_0250"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence composition calculation",
+    "url": "http://edamontology.org/operation_0236"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein hydropathy calculation",
+    "url": "http://edamontology.org/operation_2574"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence motif discovery",
+    "url": "http://edamontology.org/operation_0238"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Transmembrane protein prediction",
+    "url": "http://edamontology.org/operation_0269"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence alignment",
+    "url": "http://edamontology.org/operation_0292"
+   }
+  ],
+  "keywords": [
+   "RostLab tools",
+   "PredictProtein"
+  ],
+  "url": "https://bio.tools/predictprotein_open",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "raw",
+      "url": "http://edamontology.org/format_1957"
+     },
+     {
+      "name": "FASTA",
+      "url": "http://edamontology.org/format_1929"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein sequence",
+    "url": "http://edamontology.org/data_2976"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "XML",
+      "url": "http://edamontology.org/format_2332"
+     },
+     {
+      "name": "JSON",
+      "url": "http://edamontology.org/format_3464"
+     },
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     },
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein report",
+    "url": "http://edamontology.org/data_0896"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_metadyn_view",
+  "identifier": "metadyn_view",
+  "name": "Metadyn View",
+  "description": "An interactive web viewer of metadynamics results.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "JavaScript"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3332",
+    "inDefinedTermSet": "EDAM",
+    "name": "Computational chemistry",
+    "url": "http://edamontology.org/topic_3332"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Molecular dynamics simulation",
+    "url": "http://edamontology.org/operation_2476"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Protein flexibility and motion analysis",
+    "url": "http://edamontology.org/operation_0244"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/metadyn_view",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "Textual format",
+      "url": "http://edamontology.org/format_2330"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Structural profile",
+    "url": "http://edamontology.org/data_0889"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "HTML",
+      "url": "http://edamontology.org/format_2331"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Heat map",
+    "url": "http://edamontology.org/data_1636"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_3dbionotes",
+  "identifier": "3dbionotes",
+  "name": "3DBIONOTES",
+  "description": "Web based application designed to integrate protein structure, protein sequence and protein annotations in a unique graphical environment. The current version of the application offers a unified, enriched and interactive view of EMDB volumes, PDB structures and Uniprot sequences where the protein annotations stored in Uniprot, Immune Epitope DB, Phospho Site Plus, BioMuta and dSysMap can be explored interactively at sequence and structural level.",
+  "applicationCategory": [
+   "Database portal"
+  ],
+  "programmingLanguage": [
+   "SQL"
+  ],
+  "operatingSystem": [
+   "Linux",
+   "Windows",
+   "Mac"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3366",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data integration and warehousing",
+    "url": "http://edamontology.org/topic_3366"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0219",
+    "inDefinedTermSet": "EDAM",
+    "name": "Data submission, annotation and curation",
+    "url": "http://edamontology.org/topic_0219"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3047",
+    "inDefinedTermSet": "EDAM",
+    "name": "Molecular biology",
+    "url": "http://edamontology.org/topic_3047"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0078",
+    "inDefinedTermSet": "EDAM",
+    "name": "Proteins",
+    "url": "http://edamontology.org/topic_0078"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Data retrieval",
+    "url": "http://edamontology.org/operation_2422"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Structure visualisation",
+    "url": "http://edamontology.org/operation_0570"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Sequence visualisation",
+    "url": "http://edamontology.org/operation_0564"
+   }
+  ],
+  "keywords": [
+   "INB",
+   "ELIXIR-ES",
+   "CNB-CSIC",
+   "IMPaCT-Data",
+   "COVID-19"
+  ],
+  "url": "https://bio.tools/3dbionotes",
+  "input": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "EMDB ID",
+    "url": "http://edamontology.org/data_1146"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "PDB ID",
+    "url": "http://edamontology.org/data_1127"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "UniProt accession",
+    "url": "http://edamontology.org/data_3021"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_genesis2-h3abionet",
+  "identifier": "genesis2-h3abionet",
+  "name": "genesis2",
+  "description": "Genesis 2 is an interactive tool for displaying PCA and Admixture charts",
+  "applicationCategory": [
+   "Desktop application"
+  ],
+  "programmingLanguage": [
+   "Java"
+  ],
+  "operatingSystem": [
+   "Mac",
+   "Linux",
+   "Windows"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3517",
+    "inDefinedTermSet": "EDAM",
+    "name": "GWAS study",
+    "url": "http://edamontology.org/topic_3517"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_3056",
+    "inDefinedTermSet": "EDAM",
+    "name": "Population genetics",
+    "url": "http://edamontology.org/topic_3056"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0091",
+    "inDefinedTermSet": "EDAM",
+    "name": "Bioinformatics",
+    "url": "http://edamontology.org/topic_0091"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Principal component visualisation",
+    "url": "http://edamontology.org/operation_2939"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Visualisation",
+    "url": "http://edamontology.org/operation_0337"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Genetic variation analysis",
+    "url": "http://edamontology.org/operation_3197"
+   }
+  ],
+  "keywords": [
+   "h3abionet"
+  ],
+  "url": "https://bio.tools/genesis2-h3abionet",
+  "input": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Matrix",
+    "url": "http://edamontology.org/data_2082"
+   }
+  ],
+  "output": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDF",
+      "url": "http://edamontology.org/format_3508"
+     },
+     {
+      "name": "JPG",
+      "url": "http://edamontology.org/format_3579"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "Image",
+    "url": "http://edamontology.org/data_2968"
+   }
+  ]
+ },
+ {
+  "@type": "ComputationalTool",
+  "_id": "biotools_setter",
+  "identifier": "setter",
+  "name": "SETTER",
+  "description": "A web application for RNA structure comparison.",
+  "applicationCategory": [
+   "Web application"
+  ],
+  "programmingLanguage": [
+   "C++",
+   "Python"
+  ],
+  "operatingSystem": [
+   "Linux"
+  ],
+  "topicCategory": [
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0099",
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA",
+    "url": "http://edamontology.org/topic_0099"
+   },
+   {
+    "@type": "DefinedTerm",
+    "identifier": "topic_0097",
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid structure analysis",
+    "url": "http://edamontology.org/topic_0097"
+   }
+  ],
+  "featureList": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Nucleic acid structure analysis",
+    "url": "http://edamontology.org/operation_2481"
+   },
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "RNA secondary structure alignment",
+    "url": "http://edamontology.org/operation_0502"
+   }
+  ],
+  "keywords": [
+   "Czech Republic",
+   "ELIXIR-CZ"
+  ],
+  "url": "https://bio.tools/setter",
+  "input": [
+   {
+    "encodingFormat": [
+     {
+      "name": "PDB",
+      "url": "http://edamontology.org/format_1476"
+     }
+    ],
+    "inDefinedTermSet": "EDAM",
+    "name": "PDB ID",
+    "url": "http://edamontology.org/data_1127"
+   }
+  ],
+  "output": [
+   {
+    "inDefinedTermSet": "EDAM",
+    "name": "Secondary structure alignment (RNA)",
+    "url": "http://edamontology.org/data_0881"
+   }
+  ]
+ }
+]

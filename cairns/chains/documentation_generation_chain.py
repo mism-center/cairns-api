@@ -1,0 +1,101 @@
+import os.path
+
+from langchain_core.runnables import (
+    RunnableLambda,
+    RunnableConfig,
+    RunnableParallel,
+    RunnableBranch
+)
+from langchain_core.prompts import (
+    ChatPromptTemplate,
+)
+from langchain_core.prompts.prompt import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.language_models.chat_models import BaseChatModel
+import asyncio
+
+from models.user_question import Question
+import config as app_config
+from util.llm_helper import LLMFactory
+from langfuse import Langfuse
+from util.prompt_loader import get_prompt_text
+
+
+class DocumentationGenerationChain:
+    def __init__(self, config):
+        self.config = config
+        self.llm: BaseChatModel = LLMFactory.get_llm(config=config)
+        self.langfuse_client = None
+        if config.LANGFUSE_ENABLED:
+            self.langfuse_client = Langfuse(secret_key=config.LANGFUSE_SECRET_KEY,
+                                            public_key=config.LANGFUSE_PUBLIC_KEY,
+                                            host=config.LANGFUSE_HOST)
+
+        # prompts
+        self.PROMPT = self._get_system_prompt("DOCUMENTATION_GENERATION")
+
+    ######
+    #  Begin Chain definitions
+    ####
+    def _as_doc_gen(self):
+        run_config = RunnableConfig(
+            run_name="documentation_generation",
+        )
+
+        return RunnableParallel({
+            "prompt": self.PROMPT,
+            "output": self.PROMPT |
+                      self.llm.with_config(run_config) |
+                      StrOutputParser()
+        })
+
+    @staticmethod
+    def _get_about_readme_contents():
+        with open(os.path.join(os.path.dirname(__file__), '..',  '..', 'About_CAIRNS.md')) as stream:
+            return stream.read()
+
+    def as_generative_chain(self):
+        extraction_chain = self._as_doc_gen()
+        generative_chain = RunnableLambda(lambda agent_state:{
+            'input': agent_state['input'],
+            'documentation': self._get_about_readme_contents()
+        }) | extraction_chain | RunnableLambda(
+            lambda x: {
+                "output": x["output"],
+                "prompt": x["prompt"]
+            }
+        )
+        return app_config.configure_langfuse(generative_chain.with_config(run_name="documentation_generation"))
+
+    ######
+    #  Begin langfuse interactions (prompt definitions)
+    ####
+
+    def _get_raw_from_langfuse(self, prompt_name: str) -> str:
+        """Gets raw string for of prompts in langfuse"""
+        return get_prompt_text(prompt_name=prompt_name, config=self.config, langfuse_client=self.langfuse_client)
+
+    def _get_prompt_from_langfuse(self, prompt_name: str) -> PromptTemplate:
+        """Constructs langchain prompt object by getting raw string from langfuse"""
+        return PromptTemplate.from_template(template=self._get_raw_from_langfuse(prompt_name))
+
+    def _get_system_prompt(self, prompt_name: str) -> ChatPromptTemplate:
+        """Constructs concept extraction prompt object"""
+        return ChatPromptTemplate.from_messages(
+            ["system", self._get_raw_from_langfuse(prompt_name)]
+        )
+
+    ######
+    #  End langfuse interactions
+    ####
+
+
+if __name__ == "__main__":
+    kg_agent = DocumentationGenerationChain(config=app_config)
+    # user_q = Question(chat_history=[], input="what studies are there about sickle cell?")
+    user_q = Question(chat_history=[], input="what can this chat bot do?")
+    qa_chain = kg_agent.as_generative_chain()
+    response = asyncio.run(qa_chain.ainvoke(user_q.model_dump()))
+    import json
+
+    print(json.dumps(response, indent=2))
