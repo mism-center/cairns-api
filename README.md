@@ -1,11 +1,12 @@
 # CAIRNS Recommendation API
 
 A self-contained REST API that turns a plain-language question into
-**evidence-grounded computational-tool recommendations**, drawing from **two
+**evidence-grounded computational-tool recommendations**, drawing from **three
 sources**:
 
 1. **ToolDB** — the existing computational-tool catalog (bio.tools / NDE records)
 2. **BioModels** — systems-biology models from [biomodels.org](https://www.biomodels.org)
+3. **MISM_models** — multiscale simulation models from the [MISM platform](https://mism-dev.renci.org)
 
 It packages the CAIRNS agent (Supervisor + Knowledge-Graph + Vector-Search RAG)
 behind a single `POST /recommend` endpoint, so **collaborators can run it in
@@ -33,7 +34,7 @@ docker compose up -d                 # starts qdrant + ollama + api
 docker compose exec ollama ollama pull llama3.1:8b
 docker compose exec ollama ollama pull nomic-embed-text
 
-# one-time: build the two-source index (ToolDB + BioModels)
+# one-time: build the three-source index (ToolDB + BioModels + MISM_models)
 docker compose run --rm api bash scripts/build_indexes.sh
 
 # ask a question
@@ -61,13 +62,16 @@ Interactive docs: **http://localhost:8000/docs**
 // response
 { "answer": "Here are 3 evidence-backed options ... [tool_id] ...",
   "evidence": [
-    { "tool_id": "...", "name": "...", "source": "tooldb|biomodels",
-      "score": 3.0, "snippet": "...", "why_matched": ["..."], "url": "..." }
+    { "tool_id": "...", "name": "...", "source": "tooldb|biomodels|MISM_models",
+      "score": 3.0, "snippet": "...", "why_matched": ["..."], "url": "...",
+      "metadata": { "...": "the complete, unfiltered source record" } }
   ],
   "elapsed_seconds": 12.4 }
 ```
 Every recommended tool is cited and appears in `evidence` with its **source**
-(`tooldb` or `biomodels`), so results are auditable.
+(`tooldb`, `biomodels`, or `MISM_models`), so results are auditable. `metadata`
+carries the full source record — for BioModels/MISM this includes
+`raw_metadata`, the untouched API response, so no field is ever dropped.
 
 ### `GET /health`
 Readiness probe — checks Qdrant, the LLM backend, and the KG index.
@@ -113,21 +117,29 @@ cairns_api/
 │   └── config.py                   All settings from environment variables.
 │
 ├── db_builder/            Index-build pipeline (run once to populate the DBs).
-│   ├── biomodels_fetch.py     ★ NEW. Fetches models from biomodels.org and maps
+│   ├── biomodels_fetch.py     Fetches models from biomodels.org and maps each
+│   │                            into the ToolDB record shape, tagged
+│   │                            source="biomodels" (keeps the full API
+│   │                            response under raw_metadata).
+│   ├── mism_fetch.py          Fetches models from the MISM platform and maps
 │   │                            each into the ToolDB record shape, tagged
-│   │                            source="biomodels".
-│   ├── merge_sources.py       ★ NEW. Concatenates ToolDB + BioModels into one
-│   │                            source-tagged JSON array.
+│   │                            source="MISM_models" (keeps the full API
+│   │                            response under raw_metadata).
+│   ├── merge_sources.py       Combines any number of sources (ToolDB +
+│   │                            BioModels + MISM_models, or more later) into
+│   │                            one static, source-tagged JSON array.
 │   ├── tooldb_prepare_docs.py  Normalizes records → retrieval docs (canonical_text).
 │   ├── tooldb_create_embeddings.py  Embeds docs (via the configured backend).
 │   ├── qdrant_loader_toodb.py  Loads embeddings into a Qdrant collection (QV index).
 │   ├── build_kg_sqlite.py     Builds the SQLite knowledge graph (KG index);
-│   │                            now stores a `source` column per tool.
-│   └── tooldb_utils.py        Record→document mapping; preserves `source`.
+│   │                            stores `source` + full `metadata_json` per tool.
+│   └── tooldb_utils.py        Record→document mapping; preserves `source`
+│                                and the full record (as `metadata`).
 │
 ├── scripts/
-│   └── build_indexes.sh       Orchestrates the whole build:
-│                              fetch BioModels → merge → embed→Qdrant → build KG.
+│   └── build_indexes.sh       Orchestrates the whole build: fetch (skipped by
+│                              default, reuses the static combined catalog) →
+│                              merge → embed → Qdrant → build KG.
 │
 ├── docker/Dockerfile         Image for the API (agent core + FastAPI).
 ├── docker-compose.yml        api + qdrant + ollama, one command.
@@ -139,31 +151,50 @@ cairns_api/
 
 ---
 
-## The two sources (how it works)
+## The three sources (how it works)
 
-Both sources are normalized into the **same schema.org `ComputationalTool`
+All sources are normalized into the **same schema.org `ComputationalTool`
 record shape** and carry a `source` field, so the retrieval layer treats them
 uniformly and every evidence card reports where the tool came from.
+`merge_sources.py` takes any number of sources (not just these three), so
+adding a fourth later is a config change, not a rewrite.
 
-| | ToolDB | BioModels |
-|---|--------|-----------|
-| Origin | existing catalog JSON (`data/tooldb.json`) | fetched live from biomodels.org |
-| Fetched by | (you provide the file) | `db_builder/biomodels_fetch.py` |
-| `source` tag | `tooldb` | `biomodels` |
-| Built into | same Qdrant collection + same SQLite KG | same Qdrant collection + same SQLite KG |
+| | ToolDB | BioModels | MISM_models |
+|---|--------|-----------|-------------|
+| Origin | existing catalog JSON (`data/tooldb.json`) | fetched from biomodels.org | fetched from mism-dev.renci.org |
+| Fetched by | (you provide the file) | `db_builder/biomodels_fetch.py` | `db_builder/mism_fetch.py` |
+| `source` tag | `tooldb` | `biomodels` | `MISM_models` |
+| Built into | same Qdrant collection + same SQLite KG | same Qdrant collection + same SQLite KG | same Qdrant collection + same SQLite KG |
 
 At query time the KG and vector retrievers pull from the combined index; the
 `synthesize` step merges, de-duplicates by `tool_id`, ranks with Reciprocal Rank
-Fusion, and the LLM selects a grounded subset. Results from both sources are
-interleaved and labeled.
+Fusion, and the LLM selects a grounded subset. Results from all sources are
+interleaved and labeled. Every evidence card's `metadata` field carries the
+complete, unfiltered source record — for BioModels/MISM this includes
+`raw_metadata`, the exact API response, so nothing is lost in the mapping.
 
-Tune the mix in `.env`: `BIOMODELS_LIMIT`, `BIOMODELS_QUERY`, `TOOLDB_LIMIT`.
+Tune the mix in `.env`: `BIOMODELS_LIMIT`, `BIOMODELS_QUERY`, `MISM_LIMIT`,
+`MISM_BASE_URL`, `TOOLDB_LIMIT`.
+
+**The combined catalog is static by default.** `build_indexes.sh` writes one
+source-tagged snapshot to `data/tools_combined.json` and reuses it on every
+subsequent build — it does **not** re-fetch BioModels/MISM over the network
+each time. To refresh a source, opt in explicitly:
+```bash
+# re-merge from whatever's already in data/*.json (no network calls)
+FORCE_REBUILD_SOURCES=true docker compose run --rm api bash scripts/build_indexes.sh
+
+# also re-fetch BioModels and/or MISM before merging
+FETCH_BIOMODELS=true FETCH_MISM=true FORCE_REBUILD_SOURCES=true \
+  docker compose run --rm api bash scripts/build_indexes.sh
+```
 
 ### What data ships with the repo vs. what you provide
 
 | Data | Included in repo? | How to get it |
 |------|-------------------|---------------|
-| **BioModels** | not needed | fetched automatically from the public API during the build |
+| **BioModels** | not needed | fetched from the public API during the build (opt-in refresh; see above) |
+| **MISM_models** | not needed | fetched from the public API during the build (opt-in refresh; see above) |
 | **ToolDB — demo (50 tools)** | ✅ yes, `examples/tooldb_demo.json` | just copy it to `data/tooldb.json` — enough to try the API |
 | **ToolDB — full catalog** | ❌ no (too large) | ask the maintainer for the full JSON, copy it to `data/tooldb.json` |
 
@@ -200,15 +231,18 @@ All via environment (see `.env.example`). Key ones:
 | `QDRANT_URL` / `TOOLDB_QDRANT_COLLECTION` | vector store |
 | `KG_SQLITE_PATH` | knowledge-graph file |
 | `TOOLDB_JSON_PATH` | input ToolDB catalog |
-| `TOOLDB_LIMIT` / `BIOMODELS_LIMIT` / `BIOMODELS_QUERY` / `FETCH_BIOMODELS` | index build inputs |
+| `TOOLDB_LIMIT` / `BIOMODELS_LIMIT` / `BIOMODELS_QUERY` / `FETCH_BIOMODELS` | ToolDB/BioModels index build inputs |
+| `MISM_LIMIT` / `MISM_BASE_URL` / `FETCH_MISM` | MISM_models index build inputs |
+| `FORCE_REBUILD_SOURCES` | force a re-merge of the static combined catalog (see above) |
 
 ---
 
 ## Notes for collaborators
 
-- **Offline / no internet on the build host?** Set `FETCH_BIOMODELS=false` and
-  supply a pre-fetched `data/biomodels.json` (produced elsewhere by
-  `biomodels_fetch.py`); the build will still merge both sources.
+- **Offline / no internet on the build host?** `FETCH_BIOMODELS` and
+  `FETCH_MISM` already default to `false` — the build reuses whatever's in
+  `data/biomodels.json` / `data/mism_models.json` (produced elsewhere by
+  `biomodels_fetch.py` / `mism_fetch.py`) and merges all three sources.
 - **No GPU?** Set `MODEL_BACKEND=openai` in `.env` — the API then needs only an
   API key, not a GPU.
 - The index build is a **one-time** step; after that just keep the `api`
