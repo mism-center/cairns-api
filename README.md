@@ -234,6 +234,92 @@ All via environment (see `.env.example`). Key ones:
 | `TOOLDB_LIMIT` / `BIOMODELS_LIMIT` / `BIOMODELS_QUERY` / `FETCH_BIOMODELS` | ToolDB/BioModels index build inputs |
 | `MISM_LIMIT` / `MISM_BASE_URL` / `FETCH_MISM` | MISM_models index build inputs |
 | `FORCE_REBUILD_SOURCES` | force a re-merge of the static combined catalog (see above) |
+| `ROOT_PATH` | subpath the API is served under behind a gateway (e.g. `/cairns`); empty = domain root |
+
+---
+
+## Kubernetes (Helm)
+
+Deploys the API as a **subpath of the model-discovery gateway**, so it can back
+LLM/NLP search from the same host.
+
+```bash
+helm upgrade --install cairns ./helm/cairns-api -n model-discovery \
+  --set image.repository=containers.renci.org/cairns/cairns-api \
+  --set image.tag=1.0.0 \
+  --set ingress.host=models.example.org \
+  --set ingress.path=/cairns \
+  --set vectorStore.url=http://qdrant:6333 \
+  --set llm.backend=openai \
+  --set llm.openai.baseUrl=https://vllm.apps.renci.org/v1 \
+  --set llm.openai.existingSecret=cairns-llm
+```
+
+Served at `https://models.example.org/cairns/` (docs at `/cairns/docs`).
+
+**How the subpath works:** the ingress rule is a plain `Prefix` match with **no**
+`rewrite-target`. The chart sets `ROOT_PATH` to the ingress path and FastAPI's
+`root_path` strips it internally, so the OpenAPI schema and `/docs` emit correct
+absolute URLs. Adding a rewrite annotation breaks that — don't.
+
+**First run — build the index.** Readiness requires both the Qdrant collection
+and the KG sqlite, so pods stay `NotReady` (`/health` → 503) until the index exists:
+
+```bash
+# 1) put the ToolDB catalog on the PVC (e.g. kubectl cp into a running pod) at /data/tooldb.json
+# 2) run the one-off build Job
+helm upgrade cairns ./helm/cairns-api -n model-discovery --set indexBuild.enabled=true
+kubectl -n model-discovery logs -f job/cairns-cairns-api-build-index-<revision>
+# 3) turn it back off so later upgrades don't rebuild
+helm upgrade cairns ./helm/cairns-api -n model-discovery --set indexBuild.enabled=false
+```
+
+| Value | Default | Meaning |
+|-------|---------|---------|
+| `ingress.path` | `/cairns` | subpath mount; also drives `ROOT_PATH` |
+| `rootPath` | `""` | override `ROOT_PATH` if it differs from the ingress path |
+| `vectorStore.url` / `vectorStore.collection` | `http://qdrant:6333` / `tooldb_tools` | external vector store (used when `qdrant.enabled=false`) |
+| `qdrant.enabled` | `false` | deploy Qdrant with the release via the `qdrant/qdrant` subchart |
+| `llm.backend` | `openai` | `openai` (incl. vLLM) or `ollama` |
+| `llm.openai.existingSecret` | `""` | Secret holding `OPENAI_API_KEY` (preferred over inline) |
+| `persistence.*` | `10Gi`, RWO | PVC for the KG sqlite + build artifacts |
+| `indexBuild.enabled` | `false` | run the one-off ToolDB+BioModels index build Job |
+
+### Qdrant: bundled or external
+
+Qdrant ships as an optional subchart (`qdrant/qdrant` 1.19.0, condition `qdrant.enabled`):
+
+```bash
+# bundled — QDRANT_URL is derived from the subchart Service (http://<release>-qdrant:6333)
+helm upgrade --install cairns ./helm/cairns-api -n model-discovery \
+  --set qdrant.enabled=true --set qdrant.persistence.size=20Gi
+
+# external (default) — point at what the cluster already runs
+helm upgrade --install cairns ./helm/cairns-api -n model-discovery \
+  --set vectorStore.url=http://qdrant.infra:6333
+```
+
+Everything under `qdrant:` except `enabled` is passed straight to the subchart.
+
+> **Keep the versions aligned.** `qdrant-client` (requirements.txt) and the Qdrant
+> server must share a major version and stay within one minor, or the client logs
+> `... is incompatible with server version ...`. Currently both are **1.19**
+> (subchart `qdrant/qdrant` 1.19.0 → server v1.19.0). Bump them together.
+
+Ollama is **not** bundled — the LLM backend is always external (vLLM, cloud, or a
+shared Ollama), so `llm.backend=ollama` just points at `llm.ollama.baseUrl`.
+
+Subchart tarballs are gitignored; fetch them before a first install or lint:
+
+```bash
+helm dependency build helm/cairns-api    # uses Chart.lock
+```
+
+Smoke-check the chart after edits:
+
+```bash
+bash scripts/helm_check.sh
+```
 
 ---
 

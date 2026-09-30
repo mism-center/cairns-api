@@ -22,7 +22,7 @@ import threading
 import time
 from typing import Any, Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -87,10 +87,16 @@ class RecommendResponse(BaseModel):
 
 
 # ── app ────────────────────────────────────────────────────────────────────────
+# Mounted under a subpath of the model-discovery gateway (e.g. ROOT_PATH=/cairns).
+# Starlette strips root_path before route matching, so "/health" (probes hitting the
+# pod directly) and "/cairns/health" (through the ingress) both resolve.
+ROOT_PATH = os.getenv("ROOT_PATH", "").rstrip("/")
+
 app = FastAPI(
     title="CAIRNS Recommendation API",
     description="Evidence-grounded computational-tool recommendations (ToolDB + BioModels).",
     version="1.0.0",
+    root_path=ROOT_PATH,
 )
 app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
@@ -133,7 +139,7 @@ def root() -> dict[str, Any]:
 
 
 @app.get("/health")
-def health() -> dict[str, Any]:
+def health(response: Response) -> dict[str, Any]:
     import requests
 
     status: dict[str, Any] = {"ok": True, "checks": {}}
@@ -161,6 +167,10 @@ def health() -> dict[str, Any]:
     kg_ok = os.path.exists(config.KG_SQLITE_PATH)
     status["checks"]["kg_index"] = "ok" if kg_ok else "missing"
     status["ok"] &= kg_ok
+
+    # Non-2xx when degraded -> readiness probe pulls the pod out of the Service.
+    if not status["ok"]:
+        response.status_code = 503
     return status
 
 

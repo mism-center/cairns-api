@@ -31,7 +31,8 @@ def _resolve_backend_name(config: Any = None) -> str:
 def get_chat_model(config: Any = None) -> ChatModel:
     backend = _resolve_backend_name(config)
     timeout_seconds = float(_cfg(config, "MODEL_TIMEOUT_SECONDS", 120))
-    temperature = float(_cfg(config, "GEN_TEMPERATURE", 0))
+    raw_temperature = _cfg(config, "GEN_TEMPERATURE", None)
+    temperature = None if raw_temperature in ("", None) else float(raw_temperature)
 
     if backend == "ollama":
         return OllamaChatBackend(

@@ -1,0 +1,60 @@
+{{- if .Values.networkPolicy.enabled }}
+{{- /*
+Some namespaces ship a default-deny ingress policy (`podSelector: {}` with an
+allow-list of a few pod labels). That blocks pod-to-pod traffic this chart needs:
+API / index-build pods -> Qdrant, and the ingress controller -> API pod.
+NetworkPolicies are additive, so the two below only re-open those paths.
+*/}}
+{{- if .Values.qdrant.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "cairns-api.fullname" . }}-to-qdrant
+  labels: {{- include "cairns-api.labels" . | nindent 4 }}
+spec:
+  # The bundled qdrant subchart's pods.
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: qdrant
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  policyTypes: ["Ingress"]
+  ingress:
+    - from:
+        # API deployment and the index-build Job share these selector labels.
+        - podSelector:
+            matchLabels: {{- include "cairns-api.selectorLabels" . | nindent 14 }}
+        # ponytail: qdrant->qdrant only matters for a multi-replica cluster (6335 p2p);
+        # harmless with one replica, saves a second policy if it is ever scaled up.
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: qdrant
+              app.kubernetes.io/instance: {{ .Release.Name }}
+      ports:
+        - {port: 6333, protocol: TCP}   # REST
+        - {port: 6334, protocol: TCP}   # gRPC
+        - {port: 6335, protocol: TCP}   # p2p
+---
+{{- end }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "cairns-api.fullname" . }}-allow-ingress
+  labels: {{- include "cairns-api.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels: {{- include "cairns-api.selectorLabels" . | nindent 6 }}
+  policyTypes: ["Ingress"]
+  ingress:
+    - from:
+        {{- if .Values.networkPolicy.ingressControllerNamespace }}
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: {{ .Values.networkPolicy.ingressControllerNamespace }}
+        {{- end }}
+        {{- with .Values.networkPolicy.extraIngressFrom }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      ports:
+        - port: 8000
+          protocol: TCP
+{{- end }}

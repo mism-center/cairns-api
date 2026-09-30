@@ -1,0 +1,31 @@
+{{/* Non-secret env. Mirrors the vars read by cairns/config.py. */}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "cairns-api.fullname" . }}-env
+  labels: {{- include "cairns-api.labels" . | nindent 4 }}
+data:
+  ROOT_PATH: {{ include "cairns-api.rootPath" . | quote }}
+  MODEL_BACKEND: {{ .Values.llm.backend | quote }}
+  QDRANT_URL: {{ include "cairns-api.qdrantUrl" . | quote }}
+  QDRANT_COLLECTION_NAME: {{ .Values.vectorStore.collection | quote }}
+  TOOLDB_QDRANT_COLLECTION: {{ .Values.vectorStore.collection | quote }}
+  KG_BACKEND: "sqlite"
+  KG_SQLITE_PATH: {{ printf "%s/tooldb_kg.sqlite" (trimSuffix "/" .Values.persistence.mountPath) | quote }}
+  TMP_DIR: {{ printf "%s/tmp" (trimSuffix "/" .Values.persistence.mountPath) | quote }}
+  LOG_FILE_PATH: {{ printf "%s/cairns.log" (trimSuffix "/" .Values.persistence.mountPath) | quote }}
+{{- if eq .Values.llm.backend "ollama" }}
+  OLLAMA_BASE_URL: {{ .Values.llm.ollama.baseUrl | quote }}
+  OLLAMA_CHAT_MODEL: {{ .Values.llm.ollama.chatModel | quote }}
+  OLLAMA_EMBED_MODEL: {{ .Values.llm.ollama.embedModel | quote }}
+  GUARDIAN_MODEL_URL: {{ .Values.llm.ollama.baseUrl | quote }}
+{{- else }}
+{{- with .Values.llm.openai.baseUrl }}
+  OPENAI_BASE_URL: {{ . | quote }}
+{{- end }}
+  OPENAI_CHAT_MODEL: {{ .Values.llm.openai.chatModel | quote }}
+  OPENAI_EMBED_MODEL: {{ .Values.llm.openai.embedModel | quote }}
+{{- end }}
+{{- range $k, $v := .Values.extraEnv }}
+  {{ $k }}: {{ $v | quote }}
+{{- end }}

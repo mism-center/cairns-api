@@ -46,11 +46,11 @@ def stable_point_id(doc_id: str) -> int:
 def ensure_collection(client: QdrantClient, collection_name: str, vector_size: int, recreate: bool):
     vectors_config = VectorParams(size=vector_size, distance=Distance.COSINE)
     if recreate:
-        client.recreate_collection(collection_name=collection_name, vectors_config=vectors_config)
+        # recreate_collection is deprecated; delete + create is the supported form.
+        client.delete_collection(collection_name=collection_name)
+        client.create_collection(collection_name=collection_name, vectors_config=vectors_config)
         return
-    try:
-        client.get_collection(collection_name=collection_name)
-    except Exception:
+    if not client.collection_exists(collection_name=collection_name):
         client.create_collection(collection_name=collection_name, vectors_config=vectors_config)
 
 

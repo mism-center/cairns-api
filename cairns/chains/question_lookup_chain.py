@@ -124,13 +124,15 @@ class QuestionLookupChain:
     def _retrieve_tool_cards(self, user_query: str, top_k: int) -> dict:
         query_vector = self.embeddings.embed_query(user_query)
         try:
-            search_hits = self.q_client_sync.search(
+            # query_points replaced the removed .search() in qdrant-client >= 1.19.
+            # Points come back on .points; each is still a ScoredPoint (id/payload/score).
+            search_hits = self.q_client_sync.query_points(
                 collection_name=self.collection_name,
-                query_vector=query_vector,
+                query=query_vector,
                 limit=top_k,
                 with_payload=True,
                 with_vectors=False,
-            )
+            ).points
         except Exception:
             return {
                 "retrieval_query": user_query,
