@@ -102,6 +102,11 @@ indexBuild:
   biomodelsLimit: "200"
   biomodelsQuery: "*"
   fetchBiomodels: "true"
+  fetchMism: "false"
+  mismBaseUrl: "https://mism-dev.renci.org/api/v1"
+  mismLimit: "1000"
+  # Re-merge the combined catalog even when one already exists on the PVC.
+  forceRebuildSources: "true"
   ttlSecondsAfterFinished: 86400
   resources:
     requests: {cpu: 500m, memory: 2Gi}

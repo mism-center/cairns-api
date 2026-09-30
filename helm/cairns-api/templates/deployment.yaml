@@ -19,6 +19,9 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         {{- with .Values.podAnnotations }}{{- toYaml . | nindent 8 }}{{- end }}
     spec:
+      # Legacy docker-link service env (e.g. a "redis" Service injecting
+      # REDIS_PORT=tcp://ip:6379) collides with the app's own config vars.
+      enableServiceLinks: false
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 8 }}
       {{- end }}

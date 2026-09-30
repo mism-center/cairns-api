@@ -56,7 +56,9 @@ LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY", "")
 LANGFUSE_HOST = os.getenv("LANGFUSE_HOST", "http://localhost:3000")
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+# k8s injects REDIS_PORT="tcp://10.0.0.1:6379" for any Service named "redis" in
+# the namespace (docker-link style), so take whatever follows the last colon.
+REDIS_PORT = int(str(os.getenv("REDIS_PORT", 6379)).rsplit(":", 1)[-1])
 REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", "")
 REDIS_GRAPH_NAME = os.getenv("REDIS_GRAPH_NAME", "tooldb")
 KG_BACKEND = os.getenv("KG_BACKEND", "sqlite").lower()

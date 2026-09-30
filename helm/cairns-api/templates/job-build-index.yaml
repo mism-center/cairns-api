@@ -17,6 +17,9 @@ spec:
       labels: {{- include "cairns-api.selectorLabels" . | nindent 8 }}
     spec:
       restartPolicy: Never
+      # Legacy docker-link service env (e.g. a "redis" Service injecting
+      # REDIS_PORT=tcp://ip:6379) collides with the app's own config vars.
+      enableServiceLinks: false
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -43,6 +46,16 @@ spec:
               value: {{ .Values.indexBuild.biomodelsQuery | quote }}
             - name: FETCH_BIOMODELS
               value: {{ .Values.indexBuild.fetchBiomodels | quote }}
+            # MISM_models is the third source; off by default like BioModels, so a
+            # re-run reuses whatever per-source JSON is already on the PVC.
+            - name: FETCH_MISM
+              value: {{ .Values.indexBuild.fetchMism | quote }}
+            - name: MISM_BASE_URL
+              value: {{ .Values.indexBuild.mismBaseUrl | quote }}
+            - name: MISM_LIMIT
+              value: {{ .Values.indexBuild.mismLimit | quote }}
+            - name: FORCE_REBUILD_SOURCES
+              value: {{ .Values.indexBuild.forceRebuildSources | quote }}
             # Keep every artifact on the PVC, not in the ephemeral image layer.
             - name: DATA_DIR
               value: {{ trimSuffix "/" .Values.persistence.mountPath | quote }}

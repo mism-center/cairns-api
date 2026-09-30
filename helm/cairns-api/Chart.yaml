@@ -2,8 +2,8 @@ apiVersion: v2
 name: cairns-api
 description: CAIRNS Recommendation API — LLM/NLP search support service for model-discovery
 type: application
-version: 0.1.0
-appVersion: "1.0.0"
+version: 0.2.0
+appVersion: "1.1.1"
 keywords: [cairns, tooldb, biomodels, rag, nlp-search]
 
 # Qdrant ships with the release when qdrant.enabled=true; otherwise point
