@@ -26,9 +26,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
-          command: ["bash"] #, "scripts/build_indexes.sh"]
-          tty: true
-          stdin: true
+          command: ["bash", "scripts/build_indexes.sh"]
           envFrom:
             - configMapRef:
                 name: {{ include "cairns-api.fullname" . }}-env

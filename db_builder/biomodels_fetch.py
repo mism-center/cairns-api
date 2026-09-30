@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -28,7 +29,9 @@ from urllib.parse import quote
 
 import requests
 
-BIOMODELS_BASE = "https://www.ebi.ac.uk/biomodels"
+# Base URL is env-overridable: the public site sits behind a CloudFront WAF that
+# 403s some cloud egress IPs (e.g. AKS), so a mirror/proxy can be pointed at here.
+BIOMODELS_BASE = os.environ.get("BIOMODELS_BASE", "https://www.ebi.ac.uk/biomodels").rstrip("/")
 HEADERS = {"Accept": "application/json", "User-Agent": "CAIRNS-API/1.0"}
 
 

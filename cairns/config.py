@@ -28,7 +28,9 @@ OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", os.getenv("EMB_MODEL_NAME",
 _ollama_embed_dimensions_raw = os.getenv("OLLAMA_EMBED_DIMENSIONS", "").strip()
 OLLAMA_EMBED_DIMENSIONS = int(_ollama_embed_dimensions_raw) if _ollama_embed_dimensions_raw else None
 
-OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", LLM_URL).rstrip("/")
+# Empty string counts as unset: k8s ConfigMaps render an unset value as "",
+# and "" reaches the OpenAI SDK as a base_url it rejects (UnsupportedProtocol).
+OPENAI_BASE_URL = (os.getenv("OPENAI_BASE_URL") or LLM_URL).rstrip("/") or None
 OPENAI_CHAT_MODEL = os.getenv("OPENAI_CHAT_MODEL", os.getenv("GEN_MODEL_NAME", "meta-llama/Meta-Llama-3.1-8B-Instruct"))
 OPENAI_EMBED_MODEL = os.getenv("OPENAI_EMBED_MODEL", os.getenv("EMB_MODEL_NAME", "text-embedding-3-small"))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", os.getenv("GEN_API_KEY", "EMPTY"))

@@ -28,11 +28,12 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "300"   # LLM calls are slow
     nginx.ingress.kubernetes.io/proxy-body-size: "8m"
-  host: cairns.apps.renci.org
+    cert-manager.io/cluster-issuer: letsencrypt
+  host: mism-dev.renci.org
   path: /cairns
   tls:
-    enabled: false
-    secretName: ""
+    enabled: true
+    secretName: "mism-dev.renci.org-tls"
 
 # ── Vector store ─────────────────────────────────────────────────────────────
 vectorStore:
@@ -44,9 +45,9 @@ vectorStore:
 # Bundled Qdrant subchart (qdrant/qdrant). Everything under this key except
 # `enabled` is passed straight to that chart — see its values.yaml for the rest.
 qdrant:
-  enabled: false
+  enabled: true
   persistence:
-    size: 10Gi
+    size: 1Gi
     # storageClassName: ""
   resources: {}
   #   requests: {cpu: 500m, memory: 2Gi}
@@ -55,9 +56,9 @@ qdrant:
 # Turn on in namespaces that default-deny ingress: opens API/job -> Qdrant and
 # ingress-controller -> API. See templates/networkpolicy.yaml.
 networkPolicy:
-  enabled: false
+  enabled: true
   # Namespace running the ingress controller (matched on kubernetes.io/metadata.name).
-  ingressControllerNamespace: ""
+  ingressControllerNamespace: infra
   # Extra `from` peers for the API pod, e.g. other apps calling it in-cluster.
   extraIngressFrom: []
 
@@ -65,12 +66,13 @@ networkPolicy:
 llm:
   backend: openai
   openai:
-    baseUrl: https://vllm.apps.renci.org/v1
-    chatModel: meta-llama/Meta-Llama-3.1-8B-Instruct
+    # Azure AI Foundry, OpenAI-compatible v1 surface (key sent as Bearer token).
+    baseUrl: "https://mism-foundry.cognitiveservices.azure.com/openai/v1"
+    chatModel: "gpt-5.6-luna"
     embedModel: text-embedding-3-small
     # API key: inline (dev) or point at an existing Secret (prod).
     apiKey: ""
-    existingSecret: ""
+    existingSecret: "cairns-llm"
     existingSecretKey: OPENAI_API_KEY
   ollama:
     baseUrl: http://ollama:11434
@@ -101,11 +103,13 @@ indexBuild:
   toolDbLimit: "0"                    # 0 = all
   biomodelsLimit: "200"
   biomodelsQuery: "*"
-  fetchBiomodels: "true"
+  # BioModels (biomodels.org) sits behind a CloudFront WAF that 403s the AKS
+  # egress IP, so fetch off-cluster and stage /data/biomodels.json on the PVC.
+  fetchBiomodels: "false"
   ttlSecondsAfterFinished: 86400
   resources:
     requests: {cpu: 500m, memory: 2Gi}
-    limits: {cpu: 500m, memory: 8Gi}
+    limits: {memory: 8Gi}
 
 resources:
   requests: {cpu: 250m, memory: 1Gi}

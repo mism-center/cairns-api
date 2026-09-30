@@ -20,7 +20,9 @@ data:
   OLLAMA_EMBED_MODEL: {{ .Values.llm.ollama.embedModel | quote }}
   GUARDIAN_MODEL_URL: {{ .Values.llm.ollama.baseUrl | quote }}
 {{- else }}
-  OPENAI_BASE_URL: {{ .Values.llm.openai.baseUrl | quote }}
+{{- with .Values.llm.openai.baseUrl }}
+  OPENAI_BASE_URL: {{ . | quote }}
+{{- end }}
   OPENAI_CHAT_MODEL: {{ .Values.llm.openai.chatModel | quote }}
   OPENAI_EMBED_MODEL: {{ .Values.llm.openai.embedModel | quote }}
 {{- end }}
