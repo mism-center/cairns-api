@@ -20,6 +20,16 @@ spec:
       # Legacy docker-link service env (e.g. a "redis" Service injecting
       # REDIS_PORT=tcp://ip:6379) collides with the app's own config vars.
       enableServiceLinks: false
+      {{- if and .Values.persistence.enabled (eq .Values.persistence.accessMode "ReadWriteOnce") }}
+      # A ReadWriteOnce PVC attaches to one node, so this Job has to land on
+      # whichever node already runs the API pod or it fails with Multi-Attach.
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels: {{- include "cairns-api.selectorLabels" . | nindent 18 }}
+              topologyKey: kubernetes.io/hostname
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets: {{- toYaml . | nindent 8 }}
       {{- end }}
