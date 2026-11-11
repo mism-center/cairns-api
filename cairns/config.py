@@ -28,13 +28,18 @@ OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", os.getenv("EMB_MODEL_NAME",
 _ollama_embed_dimensions_raw = os.getenv("OLLAMA_EMBED_DIMENSIONS", "").strip()
 OLLAMA_EMBED_DIMENSIONS = int(_ollama_embed_dimensions_raw) if _ollama_embed_dimensions_raw else None
 
-OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", LLM_URL).rstrip("/")
+# Empty string counts as unset: k8s ConfigMaps render an unset value as "",
+# and "" reaches the OpenAI SDK as a base_url it rejects (UnsupportedProtocol).
+OPENAI_BASE_URL = (os.getenv("OPENAI_BASE_URL") or LLM_URL).rstrip("/") or None
 OPENAI_CHAT_MODEL = os.getenv("OPENAI_CHAT_MODEL", os.getenv("GEN_MODEL_NAME", "meta-llama/Meta-Llama-3.1-8B-Instruct"))
 OPENAI_EMBED_MODEL = os.getenv("OPENAI_EMBED_MODEL", os.getenv("EMB_MODEL_NAME", "text-embedding-3-small"))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", os.getenv("GEN_API_KEY", "EMPTY"))
 
 GEN_MODEL_NAME = os.getenv("GEN_MODEL_NAME", OPENAI_CHAT_MODEL if MODEL_BACKEND == "openai" else OLLAMA_CHAT_MODEL)
-GEN_TEMPERATURE = float(os.getenv("GEN_TEMPERATURE", "0"))
+# Unset => omit the param entirely. Reasoning models (gpt-5.x) reject any
+# explicit temperature other than their default 1.
+_gen_temperature_raw = os.getenv("GEN_TEMPERATURE", "").strip()
+GEN_TEMPERATURE = float(_gen_temperature_raw) if _gen_temperature_raw else None
 GEN_API_KEY = os.getenv("GEN_API_KEY", OPENAI_API_KEY)
 GUARDIAN_MODEL_NAME = os.getenv("GUARDIAN_MODEL_NAME", "llama3.1:latest")
 GUARDIAN_MODEL_HOST = os.getenv("GUARDIAN_MODEL_URL", OLLAMA_BASE_URL)
@@ -51,7 +56,9 @@ LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY", "")
 LANGFUSE_HOST = os.getenv("LANGFUSE_HOST", "http://localhost:3000")
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+# k8s injects REDIS_PORT="tcp://10.0.0.1:6379" for any Service named "redis" in
+# the namespace (docker-link style), so take whatever follows the last colon.
+REDIS_PORT = int(str(os.getenv("REDIS_PORT", 6379)).rsplit(":", 1)[-1])
 REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", "")
 REDIS_GRAPH_NAME = os.getenv("REDIS_GRAPH_NAME", "tooldb")
 KG_BACKEND = os.getenv("KG_BACKEND", "sqlite").lower()

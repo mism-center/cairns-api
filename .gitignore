@@ -7,3 +7,6 @@ data/*.sqlite
 data/qdrant_storage/
 data/ollama_models/
 !data/.gitkeep
+
+# Helm subchart tarballs (restore with: helm dependency build helm/cairns-api)
+helm/cairns-api/charts/

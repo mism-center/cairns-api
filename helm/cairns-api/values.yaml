@@ -1,0 +1,136 @@
+# CAIRNS Recommendation API — deployed as a subpath of the model-discovery gateway.
+
+replicaCount: 1
+
+image:
+  repository: mismplatform/cairns-api
+  tag: ""                      # defaults to Chart.appVersion
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Subpath the API is served under. Empty/"/" = served at the domain root.
+# Defaults to ingress.path; drives both the ingress rule and FastAPI's root_path
+# (so /docs and the OpenAPI schema emit correct absolute URLs).
+rootPath: ""
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+  # NOTE: plain Prefix match, NO rewrite-target. The app strips the prefix itself
+  # via root_path; a rewrite would break /docs and the OpenAPI URLs.
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"   # LLM calls are slow
+    nginx.ingress.kubernetes.io/proxy-body-size: "8m"
+  host: cairns.apps.renci.org
+  path: /cairns
+  tls:
+    enabled: false
+    secretName: ""
+
+# ── Vector store ─────────────────────────────────────────────────────────────
+vectorStore:
+  # Only used when qdrant.enabled=false. When the subchart is on, the URL is
+  # derived from its Service and this is ignored.
+  url: http://qdrant:6333
+  collection: tooldb_tools
+
+# Bundled Qdrant subchart (qdrant/qdrant). Everything under this key except
+# `enabled` is passed straight to that chart — see its values.yaml for the rest.
+qdrant:
+  enabled: false
+  persistence:
+    size: 10Gi
+    # storageClassName: ""
+  resources: {}
+  #   requests: {cpu: 500m, memory: 2Gi}
+
+# ── NetworkPolicy ─────────────────────────────────────────────────────────────
+# Turn on in namespaces that default-deny ingress: opens API/job -> Qdrant and
+# ingress-controller -> API. See templates/networkpolicy.yaml.
+networkPolicy:
+  enabled: false
+  # Namespace running the ingress controller (matched on kubernetes.io/metadata.name).
+  ingressControllerNamespace: ""
+  # Extra `from` peers for the API pod, e.g. other apps calling it in-cluster.
+  extraIngressFrom: []
+
+# MODEL_BACKEND: "openai" (any OpenAI-compatible endpoint, e.g. vLLM) or "ollama".
+llm:
+  backend: openai
+  openai:
+    baseUrl: https://vllm.apps.renci.org/v1
+    chatModel: meta-llama/Meta-Llama-3.1-8B-Instruct
+    embedModel: text-embedding-3-small
+    # API key: inline (dev) or point at an existing Secret (prod).
+    apiKey: ""
+    existingSecret: ""
+    existingSecretKey: OPENAI_API_KEY
+  ollama:
+    baseUrl: http://ollama:11434
+    chatModel: llama3.1:8b
+    embedModel: nomic-embed-text
+
+# ── Storage: KG sqlite + index build artifacts ────────────────────────────────
+persistence:
+  enabled: true
+  mountPath: /data
+  size: 10Gi
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  existingClaim: ""
+
+# Extra/override env vars (see cairns/config.py for the full list).
+extraEnv:
+  ENVIRONMENT: production
+  INPUT_GUARD_ENABLED: "false"
+  LANGFUSE_ENABLED: "false"
+
+# ── One-off index build (ToolDB + BioModels -> Qdrant + sqlite KG) ────────────
+# Enable for the initial build / refresh:  helm upgrade ... --set indexBuild.enabled=true
+# Creates a Job per release revision; re-run by bumping the revision.
+indexBuild:
+  enabled: false
+  tooldbJsonPath: /data/tooldb.json   # place the catalog on the PVC first
+  toolDbLimit: "0"                    # 0 = all
+  biomodelsLimit: "200"
+  biomodelsQuery: "*"
+  fetchBiomodels: "true"
+  fetchMism: "false"
+  mismBaseUrl: "https://mism-dev.renci.org/api/v1"
+  mismLimit: "1000"
+  # Re-merge the combined catalog even when one already exists on the PVC.
+  forceRebuildSources: "true"
+  ttlSecondsAfterFinished: 86400
+  resources:
+    requests: {cpu: 500m, memory: 2Gi}
+    limits: {cpu: 500m, memory: 8Gi}
+
+resources:
+  requests: {cpu: 250m, memory: 1Gi}
+  limits: {memory: 4Gi}
+
+# Graph compile + model warm-up can take a while on first boot.
+startupProbe:
+  failureThreshold: 30
+  periodSeconds: 10
+
+podAnnotations: {}
+podSecurityContext:
+  fsGroup: 10001
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

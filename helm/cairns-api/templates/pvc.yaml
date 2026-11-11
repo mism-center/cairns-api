@@ -1,0 +1,18 @@
+{{/* KG sqlite + index build artifacts. Skipped when reusing an existing claim. */}}
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "cairns-api.fullname" . }}-data
+  labels: {{- include "cairns-api.labels" . | nindent 4 }}
+  annotations:
+    helm.sh/resource-policy: keep   # a helm uninstall must not drop the built index
+spec:
+  accessModes: [{{ .Values.persistence.accessMode }}]
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  {{- with .Values.persistence.storageClass }}
+  storageClassName: {{ . }}
+  {{- end }}
+{{- end }}

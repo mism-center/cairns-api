@@ -15,7 +15,7 @@
 #   FETCH_BIOMODELS=true FORCE_REBUILD_SOURCES=true bash ...   # + re-fetch BioModels
 #   FETCH_MISM=true FORCE_REBUILD_SOURCES=true bash ...        # + re-fetch MISM
 #
-# Env (see .env.example): TOOLDB_JSON_PATH, BIOMODELS_LIMIT, TOOLDB_LIMIT,
+# Env (see .env.example): DATA_DIR, TOOLDB_JSON_PATH, BIOMODELS_LIMIT, TOOLDB_LIMIT,
 # MISM_LIMIT, MISM_BASE_URL, QDRANT_URL, MODEL_BACKEND, OLLAMA_*/OPENAI_*,
 # KG_SQLITE_PATH, collection name.
 set -euo pipefail
@@ -25,10 +25,12 @@ cd "$HERE"
 export PYTHONPATH="$HERE/cairns:${PYTHONPATH:-}"
 PY="${PYTHON:-python}"
 
-# Prefer the docker-compose bind mount (./data:/data) so every file this
-# script writes actually persists on the host; fall back to a local ./data
-# for venv/bare-metal runs where /data won't exist.
-if [ -d /data ]; then
+# DATA_DIR wins (k8s points it at the PVC); otherwise prefer the docker-compose
+# bind mount (./data:/data) so every file this script writes persists on the
+# host; fall back to a local ./data for venv/bare-metal runs without /data.
+if [ -n "${DATA_DIR:-}" ]; then
+  DATA="${DATA_DIR%/}"
+elif [ -d /data ]; then
   DATA="/data"
 else
   DATA="$HERE/data"

@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cairns-api.fullname" . }}
+  labels: {{- include "cairns-api.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  {{- if .Values.persistence.enabled }}
+  strategy:
+    type: Recreate   # RWO volume: old and new pod cannot mount it at once
+  {{- end }}
+  selector:
+    matchLabels: {{- include "cairns-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "cairns-api.selectorLabels" . | nindent 8 }}
+      annotations:
+        # Roll the pods when env changes.
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{- with .Values.podAnnotations }}{{- toYaml . | nindent 8 }}{{- end }}
+    spec:
+      # Legacy docker-link service env (e.g. a "redis" Service injecting
+      # REDIS_PORT=tcp://ip:6379) collides with the app's own config vars.
+      enableServiceLinks: false
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext: {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "cairns-api.fullname" . }}-env
+          {{- if .Values.llm.openai.existingSecret }}
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.llm.openai.existingSecret }}
+                  key: {{ .Values.llm.openai.existingSecretKey }}
+          {{- else if .Values.llm.openai.apiKey }}
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "cairns-api.fullname" . }}-llm
+                  key: OPENAI_API_KEY
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: 8000
+          # Probes hit the pod directly, i.e. without the ingress subpath prefix.
+          startupProbe:
+            httpGet: {path: /, port: http}
+            failureThreshold: {{ .Values.startupProbe.failureThreshold }}
+            periodSeconds: {{ .Values.startupProbe.periodSeconds }}
+          readinessProbe:
+            httpGet: {path: /health, port: http}   # 503 while Qdrant/LLM/KG are not ready
+            periodSeconds: 15
+            timeoutSeconds: 10
+          livenessProbe:
+            httpGet: {path: /, port: http}         # process-level only; deps must not restart us
+            periodSeconds: 30
+            timeoutSeconds: 5
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: data
+              mountPath: {{ .Values.persistence.mountPath }}
+      volumes:
+        - name: data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "cairns-api.pvcName" . }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations: {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity: {{- toYaml . | nindent 8 }}
+      {{- end }}
