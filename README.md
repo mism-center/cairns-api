@@ -56,9 +56,17 @@ Interactive docs: **http://localhost:8000/docs**
 ### `POST /recommend`
 ```jsonc
 // request
-{ "question": "tools for single-cell immune cell annotation",
+{ "input_type": "sentence",      // optional, default "sentence". "sentence" = question used
+                                  // as-is; "keyword" = question is a bare term/phrase, wrapped
+                                  // into a search sentence server-side before running the agent
+  "question": "tools for single-cell immune cell annotation",
   "chat_history": [],            // optional [[user, assistant], ...] for follow-ups
   "thread_id": null }            // optional
+
+// keyword-mode request, equivalent to asking the sentence
+// "search that contains the following keyword: CRISPR"
+{ "input_type": "keyword", "question": "CRISPR" }
+
 // response
 { "answer": "Here are 3 evidence-backed options ... [tool_id] ...",
   "evidence": [

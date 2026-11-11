@@ -20,7 +20,7 @@ import asyncio
 import os
 import threading
 import time
-from typing import Any, Optional
+from typing import Any, Literal, Optional
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -54,7 +54,21 @@ def _run_graph(question: str, chat_history: list, thread_id: str) -> dict:
 
 # ── request / response models ─────────────────────────────────────────────────
 class RecommendRequest(BaseModel):
-    question: str = Field(..., description="Natural-language question about computational tools.")
+    input_type: Literal["sentence", "keyword"] = Field(
+        default="sentence",
+        description=(
+            "'sentence' (default): `question` is used as-is, a natural-language "
+            "question. 'keyword': `question` is a bare keyword/phrase, wrapped "
+            "into a search sentence before running the agent."
+        ),
+    )
+    question: str = Field(
+        ...,
+        description=(
+            "A natural-language question (input_type='sentence') or a bare "
+            "keyword/phrase (input_type='keyword')."
+        ),
+    )
     chat_history: list[list[str]] = Field(
         default_factory=list,
         description="Prior turns as [[user, assistant], ...] for follow-ups.",
@@ -168,7 +182,10 @@ def health() -> dict[str, Any]:
 def recommend(req: RecommendRequest) -> RecommendResponse:
     t0 = time.time()
     thread_id = req.thread_id or f"api-{int(t0*1000)}"
-    result = _run_graph(req.question, req.chat_history, thread_id)
+    question = req.question
+    if req.input_type == "keyword":
+        question = f"search that contains the following keyword: {req.question}"
+    result = _run_graph(question, req.chat_history, thread_id)
     out = result.get("output")
     answer = getattr(out, "content", str(out)) if out is not None else ""
     return RecommendResponse(
